@@ -1529,33 +1529,22 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Wrap ALL occurrences of each term in body text nodes
+  // Wrap all occurrences of each term in body text nodes
   function wrapTerms() {
 
     function walkNode(node) {
-      if (node.nodeType === 3) { // text node
+      if (node.nodeType === 3) {
         var text = node.nodeValue;
         for (var term in TERMS) {
           var def = TERMS[term];
           var enDef = def[0], frDef = def[1];
           var pattern = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-          // Use indexOf for reliable matching regardless of accents/special chars
-          var idx = text.indexOf(term);
-          var m = null;
-          if (idx !== -1) {
-            // Check it's not mid-word (basic boundary check)
-            var before_char = idx > 0 ? text[idx-1] : ' ';
-            var after_char = idx + term.length < text.length ? text[idx + term.length] : ' ';
-            var wordChars = /[a-zA-ZÀ-ÿ0-9]/;
-            if (!wordChars.test(before_char) || !wordChars.test(text[0])) {
-              m = [term, term];
-              m.index = idx;
-            }
-          }
+          var rx = new RegExp('(' + pattern + ')');
+          var m = rx.exec(text);
           if (m) {
-            var before = text.slice(0, idx !== undefined ? idx : m.index);
-            var match  = term;
-            var after  = text.slice((idx !== undefined ? idx : m.index) + term.length);
+            var before = text.slice(0, m.index);
+            var match  = m[0];
+            var after  = text.slice(m.index + m[0].length);
             var abbr = document.createElement('abbr');
             abbr.className = 'tip';
             abbr.dataset.tipEn = enDef;
