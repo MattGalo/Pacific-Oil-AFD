@@ -1,188 +1,467 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Pacific Oil · Demande d'accompagnement AFD Pacifique</title>
+<title>Pacific Oil · Note à l'attention de l'AFD Pacifique</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,700;1,300&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-.lfr{display:none !important}
-.len{display:inline}
-body.lang-fr .lfr{display:inline !important}
-body.lang-fr .len{display:none !important}
+/* ── RESET ── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+/* ── VARS ── */
 :root{
-  --teal:#3db8c1;--green:#2ecc71;--coral:#ff6b5b;
-  --dark:#071e3d;--dark2:#0c2d50;--light:#f5f7fa;
-  --gy:#5d6e82;--rule:#dde3ec;--text:#1e2b3c;
-  --fd:'Fraunces',Georgia,serif;--fb:'DM Sans',sans-serif;
-  --max:1100px;
+  --teal:#3db8c1;
+  --green:#2ecc71;
+  --coral:#ff6b5b;
+  --dark:#071e3d;
+  --dark2:#0c2d50;
+  --light:#f5f7fa;
+  --gy:#5d6e82;
+  --rule:#dde3ec;
+  --text:#1e2b3c;
+  --fd:'Fraunces',Georgia,serif;
+  --fb:'DM Sans',sans-serif;
 }
-html{scroll-behavior:smooth;scroll-padding-top:64px}
+/* ── BASE ── */
+html{scroll-behavior:smooth;scroll-padding-top:70px}
 body{font-family:var(--fb);font-size:16px;line-height:1.72;color:var(--text);background:#fff}
 a{color:var(--teal);text-decoration:none}
-img{max-width:100%;display:block}
-
-/* PARAGRAPHES — largeur et alignement uniformes */
-p{text-align:justify;hyphens:auto;line-height:1.72;color:#2d3e52;margin-bottom:.9em}
+p{margin-bottom:.9em;color:#2d3e52;text-align:justify}
 p:last-child{margin-bottom:0}
-.w p, section p{max-width:var(--max)}
-
-/* NAV */
-.nav{position:fixed;top:0;left:0;right:0;z-index:900;height:56px;display:flex;align-items:center;padding:0 5%;background:rgba(7,30,61,.88);backdrop-filter:blur(12px);transition:background .3s,box-shadow .3s}
-.nav.scrolled{background:rgba(7,30,61,.98);box-shadow:0 2px 20px rgba(0,0,0,.4)}
-.nav-w{width:100%;max-width:var(--max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
+/* ── LANGUAGE ── */
+/* ── LANGUAGE SYSTEM ── */
+.lfr{display:none !important}
+.len{display:inline}
+/* FR active — inline elements */
+body.lang-fr .lfr{display:inline !important}
+body.lang-fr .len{display:none !important}
+/* FR active — block elements that ARE .lfr (not children) */
+body.lang-fr p.lfr,body.lang-fr div.lfr,
+body.lang-fr li.lfr,body.lang-fr h1.lfr,body.lang-fr h2.lfr,
+body.lang-fr h3.lfr,body.lang-fr figcaption.lfr{display:block !important}
+body.lang-fr p.len,body.lang-fr div.len,
+body.lang-fr li.len,body.lang-fr h1.len,body.lang-fr h2.len,
+body.lang-fr h3.len,body.lang-fr figcaption.len{display:none !important}
+/* FR active — block children */
+body.lang-fr p>.lfr,body.lang-fr div>.lfr,
+body.lang-fr li>.lfr,body.lang-fr td>.lfr,
+body.lang-fr th>.lfr{display:block !important}
+body.lang-fr p>.len,body.lang-fr div>.len,
+body.lang-fr li>.len,body.lang-fr td>.len,
+body.lang-fr th>.len{display:none !important}
+/* EN active */
+body.lang-en .lfr{display:none !important}
+body.lang-en .len{display:inline !important}
+body.lang-en p.len,body.lang-en div.len{display:block !important}
+body.lang-en p.lfr,body.lang-en div.lfr{display:none !important}
+/* ── NAV (style V48) ── */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:900;
+  height:56px;display:flex;align-items:center;
+  padding:0 5%;
+  background:rgba(7,30,61,.82);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  transition:background .3s,box-shadow .3s;
+}
+.nav.scrolled{background:rgba(7,30,61,.97);box-shadow:0 2px 20px rgba(0,0,0,.4)}
+.nav-inner{width:100%;max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem}
 .nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
 .nav-brand svg{width:28px;height:28px}
-.nav-brand-name{font-family:var(--fd);font-size:1.05rem;color:#fff;letter-spacing:.02em}
-.nav-tag{font-size:13px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--teal);background:rgba(61,184,193,.15);border:1px solid rgba(61,184,193,.28);padding:4px 10px;border-radius:4px;white-space:nowrap}
-
-/* HERO — carte en fond */
-.hero{position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:stretch}
-.hero .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%}
-.hero-ov{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(7,30,61,.45) 0%,rgba(7,30,61,.35) 40%,rgba(7,30,61,.55) 68%,rgba(7,30,61,.88) 86%,rgba(7,30,61,.97) 100%)}
-.hero-c{position:relative;z-index:2;width:100%;max-width:var(--max);margin:0 auto;padding:12vh 5% 3vh}
-h1{font-family:var(--fd);font-size:clamp(22px,4vw,38px);font-weight:700;line-height:1.14;color:#fff;margin-bottom:14px;text-shadow:0 2px 18px rgba(0,0,0,.8),0 1px 6px rgba(0,0,0,.5)}
-h1 em{font-family:var(--fd);font-style:italic;font-weight:300}
-.hero-sub{font-size:clamp(14px,1.9vw,17px);color:rgba(255,255,255,.88);line-height:1.65;margin-bottom:32px;text-shadow:0 1px 10px rgba(0,0,0,.65);text-align:justify;hyphens:auto}
-.badge{display:inline-flex;flex-direction:column;background:rgba(61,184,193,.18);border:1px solid rgba(61,184,193,.38);border-radius:8px;padding:12px 18px;gap:4px}
-.badge-l{font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.45)}
-.badge-v{font-size:16px;font-weight:600;color:#fff;text-align:left}
-
-/* WRAPPER */
-.w{max-width:var(--max);margin:0 auto;padding:0 5%}
-section{padding:64px 0}
+.nav-brand-name{font-family:var(--fd);font-size:1.1rem;color:#fff;letter-spacing:.02em}
+.nav-r{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.csel{
+  background:rgba(255,255,255,.1);color:#fff;
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:4px;padding:5px 8px;font-size:12.5px;
+  font-family:var(--fb);cursor:pointer;outline:none;
+  -webkit-appearance:none;appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='rgba(255,255,255,.5)'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 6px center;
+  padding-right:22px;
+}
+.csel option{background:#071e3d;color:#fff}
+.lbtn{
+  background:transparent;color:rgba(255,255,255,.6);
+  border:1px solid rgba(255,255,255,.2);border-radius:4px;
+  padding:6px 12px;font-size:13.5px;font-weight:600;
+  cursor:pointer;font-family:var(--fb);transition:all .2s;
+}
+.lbtn:hover{color:#fff;border-color:rgba(255,255,255,.5)}
+.lbtn.on{background:var(--teal);border-color:var(--teal);color:#071e3d;font-weight:700}
+/* ── HERO ── */
+.hero{
+  position:relative;height:88vh;min-height:500px;max-height:780px;
+  overflow:hidden;display:flex;align-items:flex-end;
+}
+.hero-img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center 58%;
+}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(
+    to bottom,
+    rgba(7,30,61,0) 0%,
+    rgba(7,30,61,0) 50%,
+    rgba(7,30,61,.35) 68%,
+    rgba(7,30,61,.72) 83%,
+    rgba(7,30,61,.88) 100%
+  );
+}
+@media (max-width: 768px) {
+  .hero-overlay{
+    background:linear-gradient(
+      to bottom,
+      rgba(7,30,61,.45) 0%,
+      rgba(7,30,61,.30) 30%,
+      rgba(7,30,61,.45) 60%,
+      rgba(7,30,61,.82) 82%,
+      rgba(7,30,61,.92) 100%
+    );
+  }
+  .hero-content{
+    margin-bottom:4vh;
+    padding-top:72px;
+  }
+  /* Regulatory table → card layout on mobile */
+  .rt thead { display:none; }
+  .rt, .rt tbody, .rt tr, .rt td { display:block; width:100%; }
+  .rt tr {
+    background:var(--light);
+    border:1px solid var(--rule);
+    border-radius:8px;
+    margin-bottom:12px;
+    padding:14px 16px;
+    text-align:left;
+  }
+  .rt tr:last-child td { border-bottom:1px solid var(--rule); }
+  .rt td {
+    padding:4px 0;
+    border:none;
+    font-size:14px;
+    text-align:left;
+  }
+  .rt td:first-child {
+    font-weight:700;
+    font-size:15px;
+    color:var(--dark);
+    margin-bottom:4px;
+    padding-bottom:6px;
+    border-bottom:1px solid var(--rule);
+    margin-bottom:8px;
+  }
+  .rt td::before {
+    content: attr(data-label);
+    display:block;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--teal);
+    margin-bottom:3px;
+  }
+  .rt td:first-child::before { content:''; }
+}
+.hero-content{
+  position:relative;z-index:2;
+  width:100%;max-width:1100px;
+  margin:0 auto 6vh;padding:0 5%;
+}
+.hero-tag{
+  font-size:12px;font-weight:700;letter-spacing:.2em;
+  text-transform:uppercase;color:#fff;margin-bottom:12px;
+  text-shadow:0 1px 8px rgba(0,0,0,.85),0 0 20px rgba(0,0,0,.6);
+  background:rgba(0,0,0,.28);padding:5px 12px;border-radius:3px;
+}
+.hero-title{
+  font-family:var(--fd);
+  font-size:clamp(22px,4.5vw,40px);
+  font-weight:700;font-style:normal;line-height:1.18;color:#fff;
+  margin-bottom:16px;
+  text-align:justify;
+  text-shadow:0 2px 18px rgba(0,0,0,.75),0 1px 6px rgba(0,0,0,.5);
+}
+.hero-title em{
+  font-family:var(--fd);
+  color:#fff;
+  font-style:italic;
+  font-weight:700;
+  text-shadow:0 2px 18px rgba(0,0,0,.75),0 1px 6px rgba(0,0,0,.5);
+}
+.hero-sub{
+  font-size:clamp(15px,2.2vw,18px);color:rgba(255,255,255,.95);
+  font-weight:400;line-height:1.65;
+  margin-bottom:24px;
+  text-align:justify;
+  text-shadow:0 1px 10px rgba(0,0,0,.65),0 1px 4px rgba(0,0,0,.4);
+}
+.hero-meta{
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  border-top:1px solid rgba(255,255,255,.14);
+  padding-top:16px;
+}
+.hm-lbl{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:3px}
+.hm-val{font-size:15px;font-weight:600;color:#fff}
+/* ── LAYOUT ── */
+.container{max-width:1100px;margin:0 auto;padding:0 5%}
+section{padding:60px 0}
 section+section{border-top:1px solid var(--rule)}
-
-/* HEADINGS */
-.stag{font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:8px}
-h2{font-family:var(--fd);font-size:clamp(20px,3vw,27px);font-weight:700;color:var(--dark);line-height:1.2;margin-bottom:14px}
-h2.light{color:#fff}
-.intro{font-size:16px;color:var(--gy);line-height:1.72;margin-bottom:28px;text-align:justify;hyphens:auto}
-
-/* IMAGES PLEINE LARGEUR */
-.img-block{margin:36px 0}
-.img-block img{width:100%;border-radius:8px;border:1px solid var(--rule)}
-.img-cap{font-size:14px;color:var(--gy);margin-top:8px;text-align:center;line-height:1.5}
-
-/* CARDS */
-.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:28px 0}
-.card{background:var(--light);border:1px solid var(--rule);border-left:3px solid var(--teal);border-radius:7px;padding:18px 20px}
-.card h4{font-size:14px;font-weight:700;color:var(--dark);margin-bottom:6px;text-align:left}
-.card p{font-size:14px;color:var(--gy);line-height:1.6;margin:0;text-align:left;max-width:none}
-
-/* ÉCONOMIE CIRCULAIRE — bandeau accroche */
-.ec-banner{background:linear-gradient(135deg,var(--dark) 0%,var(--dark2) 100%);border-radius:10px;padding:28px 32px;margin:32px 0;border-left:4px solid var(--teal)}
-.ec-banner .stag{color:var(--teal)}
-.ec-banner h3{font-family:var(--fd);font-size:clamp(18px,2.5vw,24px);color:#fff;font-weight:700;margin-bottom:10px;line-height:1.25}
-.ec-banner p{color:rgba(255,255,255,.68);font-size:15px;text-align:justify;hyphens:auto;max-width:none}
-
-/* STATS BAND */
-.stats-band{display:grid;grid-template-columns:repeat(3,1fr);background:var(--dark2);border-radius:10px;overflow:hidden;margin:28px 0}
-.stat{padding:26px 22px;border-right:1px solid rgba(255,255,255,.07)}
-.stat:last-child{border-right:none}
-.stat-l{font-size:13px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:8px}
-.stat-v{font-size:28px;font-weight:800;color:var(--teal);line-height:1;margin-bottom:6px}
-.stat-v.red{color:#e74c3c}
-.stat-d{font-size:15px;color:rgba(255,255,255,.52);line-height:1.55;text-align:left;max-width:none}
-
-/* SEQUENCE */
-.seq-list{margin:32px 0;display:flex;flex-direction:column}
-.seq{display:flex;gap:18px;padding-bottom:28px;position:relative}
-.seq:not(:last-child)::after{content:'';position:absolute;left:19px;top:42px;bottom:0;width:2px;background:rgba(61,184,193,.2)}
-.seq-n{flex-shrink:0;width:40px;height:40px;border-radius:50%;background:var(--teal);color:var(--dark);font-size:17px;font-weight:800;display:flex;align-items:center;justify-content:center;z-index:1}
-.seq-body{padding-top:4px;flex:1}
-.seq-stag{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:4px}
-.seq-t{font-size:17px;font-weight:700;color:var(--dark);margin-bottom:8px}
-.seq-p{font-size:15px;color:var(--gy);line-height:1.7;text-align:justify;hyphens:auto;max-width:none}
-.pill{display:inline-flex;align-items:center;gap:10px;background:var(--light);border:1px solid var(--rule);border-radius:6px;padding:8px 14px;margin-top:12px}
-.pill-v{font-size:18px;font-weight:800;color:var(--teal);font-family:var(--fd)}
-.pill-l{font-size:14px;color:var(--gy)}
-
-/* CONTACT BOX */
-.contact-box{background:var(--light);border:1px solid var(--rule);border-radius:8px;padding:16px 20px;margin-top:16px}
-.contact-box .label{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gy);margin-bottom:8px}
-.contact-box .lines{font-size:15px;color:var(--dark);line-height:2;text-align:left;max-width:none}
-
-/* CALLOUT */
-.callout{background:var(--dark);border-left:4px solid var(--teal);border-radius:6px;padding:18px 24px;margin:28px 0}
-.callout p{color:rgba(255,255,255,.75);font-size:15px;line-height:1.7;text-align:justify;hyphens:auto;max-width:none}
-
-/* INITIATIVES */
-.inits{display:flex;flex-direction:column;gap:10px;margin:20px 0}
-.init{background:var(--light);border:1px solid var(--rule);border-radius:7px;padding:14px 18px;display:flex;gap:12px;align-items:flex-start}
-.dot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0;margin-top:6px}
-.init h4{font-size:14px;font-weight:700;color:var(--dark);margin-bottom:3px;text-align:left}
-.init p{font-size:14px;color:var(--gy);line-height:1.55;margin:0;text-align:left;max-width:none}
-
-/* TABLE */
-.fin-table{width:100%;border-collapse:collapse;font-size:14px;margin:20px 0}
-.fin-table th{background:var(--dark);color:var(--teal);padding:10px 14px;text-align:left;font-size:13px;font-weight:700;letter-spacing:.07em}
-.fin-table td{padding:11px 14px;border-bottom:1px solid var(--rule);color:#2d3e52;vertical-align:top;line-height:1.55;text-align:left}
-.fin-table tr:last-child td{border-bottom:none}
-.fin-table tr:hover td{background:var(--light)}
-
-/* FOOTER */
-.cta{background:var(--dark);padding:64px 5%;text-align:center}
-.cta-w{max-width:560px;margin:0 auto}
-.cta h2{font-family:var(--fd);color:#fff;margin-bottom:12px}
-.cta p{font-size:16px;color:rgba(255,255,255,.58);line-height:1.7;margin-bottom:26px;text-align:center}
-.cta-btn{display:inline-block;background:var(--teal);color:var(--dark);font-family:var(--fb);font-size:15px;font-weight:700;padding:14px 32px;border-radius:6px;transition:.18s}
-.cta-btn:hover{background:#2fa8b0;transform:translateY(-1px)}
-.cta-note{font-size:15px;color:rgba(255,255,255,.28);margin-top:12px}
-.cta-meta{margin-top:22px;font-size:14px;color:rgba(255,255,255,.35);line-height:1.9;text-align:center}
-.cta-meta a{color:var(--teal)}
-
-footer{background:#030d1c;padding:18px 5%}
-.footer-w{max-width:var(--max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
-.footer-logos{display:flex;align-items:center;gap:16px}
-.footer-logos img{height:32px;width:auto;object-fit:contain}
-.footer-text{font-size:13px;color:rgba(255,255,255,.25);line-height:1.6;text-align:right}
-
-/* ── RESPONSIVE ───────────────────────────── */
-@media(max-width:768px){
-  .stats-band{grid-template-columns:1fr}
-  .stat{border-right:none;border-bottom:1px solid rgba(255,255,255,.07)}
-  .stat:last-child{border-bottom:none}
-  .cards{grid-template-columns:1fr}
-  .footer-text{text-align:left}
+.sec-tag{
+  font-size:12px;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--teal);margin-bottom:8px;
 }
-@media(max-width:640px){
-  .nav-tag{display:none}
-  .fin-table th:nth-child(3), .fin-table td:nth-child(3){display:none}
-  .hero-ov{background:linear-gradient(to bottom,rgba(7,30,61,.3) 0%,rgba(7,30,61,.15) 35%,rgba(7,30,61,.55) 62%,rgba(7,30,61,.9) 85%,rgba(7,30,61,.97) 100%)}
-  .ec-banner{padding:20px}
-  /* Oil image height on mobile */
-  div[style*="height:280px"]{height:200px !important}
-}
-@media(max-width:480px){
-  h1{font-size:20px}
-  h2{font-size:20px}
-  section{padding:44px 0}
-  .stat-v{font-size:24px}
-  .footer-logos img{height:26px}
-  .footer-w{flex-direction:column;gap:14px}
-  .footer-text{text-align:left}
+.sec-title{
+  font-family:var(--fd);
+  font-size:clamp(19px,2.8vw,26px);
+  font-weight:700;color:var(--dark);
+  line-height:1.25;margin-bottom:18px;
 }
 
-/* MAP — exact from SPREP site */
+/* ── TOOLTIPS ── */
+abbr.tip {
+  text-decoration: underline dotted rgba(61,184,193,.55);
+  text-underline-offset: 3px;
+  cursor: help;
+  position: relative;
+  white-space: nowrap;
+}
+abbr.tip::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #071e3d;
+  color: rgba(255,255,255,.88);
+  font-size: 12px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.5;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(61,184,193,.3);
+  width: max-content;
+  max-width: 260px;
+  white-space: normal;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .18s;
+  z-index: 999;
+  box-shadow: 0 4px 20px rgba(0,0,0,.4);
+}
+abbr.tip::before {
+  content: '';
+  position: absolute;
+  bottom: calc(100% + 2px);
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: rgba(61,184,193,.3);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .18s;
+  z-index: 999;
+}
+abbr.tip:hover::after,
+abbr.tip:hover::before,
+abbr.tip.tip-open::after,
+abbr.tip.tip-open::before {
+  opacity: 1;
+}
+/* Keep tooltip on screen edges */
+@media (max-width: 480px) {
+  abbr.tip::after {
+    left: 0;
+    transform: none;
+    max-width: 220px;
+  }
+}
+
+/* ── SCOPE NOTE ── */
+.scope-note{font-size:15px;color:var(--gy);font-style:italic;background:var(--light);border-left:3px solid var(--teal);padding:12px 16px;border-radius:0 6px 6px 0;margin-bottom:20px}
+.scope-note strong{color:var(--dark);font-style:normal}
+/* ── CALLOUT ── */
+.callout{
+  background:var(--dark);border-left:3px solid var(--teal);
+  border-radius:6px;padding:20px 24px;margin:24px 0;
+}
+.callout p{color:rgba(255,255,255,.78);font-style:italic;margin-bottom:6px}
+.callout cite{font-size:12.5px;color:rgba(255,255,255,.38);font-style:normal;letter-spacing:.02em}
+
+/* ── PROCESS DIAGRAM ── */
+.diagram{
+  border:1px solid var(--rule);border-radius:8px;
+  overflow:hidden;margin:28px 0;
+  box-shadow:0 2px 14px rgba(0,0,40,.06);
+}
+.diagram-bar{
+  background:var(--dark);padding:9px 16px;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.diagram-bar-title{
+  font-size:13px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--teal);
+}
+.diagram-bar-credit{font-size:12px;color:rgba(255,255,255,.3);font-style:italic}
+.diagram img{width:100%;display:block;background:#fff;padding:8px}
+.diagram-foot{
+  padding:7px 16px;background:var(--light);
+  font-size:13px;color:var(--gy);
+  border-top:1px solid var(--rule);font-style:italic;
+}
+/* ── MAP ── */
 .map-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:7px;margin:24px 0}
 .map-scroll svg{min-width:540px;width:100%;height:auto;display:block;border-radius:7px}
 .map-note{font-size:13px;color:var(--gy);font-style:italic;margin-top:8px}
+/* ── PRINCIPLES ── */
+.principles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:24px 0}
+.pr-card{background:var(--light);border:1px solid var(--rule);border-top:3px solid var(--teal);border-radius:7px;padding:20px 16px}
+.pr-n{font-family:var(--fd);font-size:30px;color:var(--teal);opacity:.3;line-height:1;margin-bottom:8px}
+.pr-title{font-size:15.5px;font-weight:700;color:var(--dark);margin-bottom:7px}
+.pr-text{font-size:14.5px;color:var(--gy);line-height:1.65}
+/* ── REG TABLE ── */
+.rt{width:100%;border-collapse:collapse;font-size:15px;margin:20px 0}
+.rt th{background:var(--dark);color:var(--teal);padding:10px 13px;text-align:left;font-size:13px;font-weight:700;letter-spacing:.06em}
+.rt td{padding:10px 13px;border-bottom:1px solid var(--rule);color:#2d3e52;vertical-align:top;line-height:1.5}
+.rt td small{font-size:13px;color:var(--gy);display:block;margin-top:2px}
+.rt tr:last-child td{border-bottom:none}
+.rt tr:hover td{background:var(--light)}
+.pill{display:inline-block;font-size:12.5px;font-weight:700;padding:3px 11px;border-radius:10px;white-space:nowrap}
+.pill-open{background:#e8f5e9;color:#2e7d32}
+.pill-pending{background:#fff3e0;color:#bf360c}
+.pill-progress{background:#e3f2fd;color:#0d47a1}
+.pill-bilateral{background:#fce4ec;color:#880e4f}
+/* ── SCENARIO TABS ── */
+.sc-tabs{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.sc-tab{
+  background:var(--light);color:var(--gy);
+  border:1px solid var(--rule);border-radius:4px;
+  padding:8px 18px;font-size:14px;font-weight:600;
+  cursor:pointer;font-family:var(--fb);transition:all .2s;
+}
+.sc-tab.active{background:var(--dark);color:var(--teal);border-color:var(--dark)}
+.vt{width:100%;border-collapse:collapse;font-size:15px}
+.vt th{background:var(--dark);color:var(--teal);padding:9px 12px;text-align:left;font-size:13px;font-weight:700;letter-spacing:.06em}
+.vt td{padding:8px 12px;border-bottom:1px solid var(--rule);color:#2d3e52}
+.vt .r{text-align:right;font-variant-numeric:tabular-nums}
+.vt tr.total td{background:var(--light);font-weight:700;border-top:2px solid var(--rule)}
+.sc-note{font-size:14px;color:var(--gy);font-style:italic;margin-top:12px;line-height:1.6}
+/* ── PATHWAY ── */
+.pathway{display:flex;flex-direction:column;gap:0;margin:32px 0}
+.pw{display:flex;gap:24px;align-items:flex-start;padding:28px 0 28px 24px;border-left:3px solid var(--teal);margin-bottom:20px;position:relative}
+.pw:last-child{margin-bottom:0}
+.pw-n{
+  flex-shrink:0;width:34px;height:34px;background:var(--dark);
+  color:var(--teal);border-radius:50%;display:flex;align-items:center;
+  justify-content:center;font-size:14px;font-weight:700;margin-top:3px;
+}
+.pw-title{font-size:17.5px;font-weight:700;color:var(--dark);margin-bottom:8px;line-height:1.3}
+.pw-desc{font-size:16px;color:var(--gy);line-height:1.7}
+.pw-desc p{margin-bottom:.7em}
+.pw-desc strong{color:var(--dark);font-weight:600}
+.pw-conclusion{margin-top:36px;padding:24px 28px;border-left:3px solid var(--coral);background:#f8fafc;font-size:16px;line-height:1.75;color:var(--dark)}
+/* ── LOGO BAR ── */
+.logo-bar{
+  background:var(--dark);padding:28px 5%;
+  display:flex;align-items:center;justify-content:center;
+  gap:24px;flex-wrap:nowrap;
+}
+.logo-bar-label{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.3)}
+.logo-item{
+  padding:10px 20px;background:#ffffff;
+  border-radius:6px;border:1px solid rgba(255,255,255,.15);
+  display:flex;align-items:center;justify-content:center;
+  height:56px;
+}
+.logo-item img{height:28px;width:auto;display:block;object-fit:contain;max-width:140px;filter:none}
+/* ── FOOTER ── */
+footer{
+  background:#030d1c;padding:16px 5%;
+  text-align:center;font-size:13px;color:rgba(255,255,255,.28);
+  line-height:1.6;
+}
+/* ── RESPONSIVE ── */
+@media(max-width:640px){
+  .stats{grid-template-columns:1fr 1fr}
+  .principles{grid-template-columns:1fr}
+}
+@media(max-width:440px){
+  .stats{grid-template-columns:1fr}
+  .hero-meta{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px 16px;
+  }
+  .hm-val{font-size:14px}
+}
 
-.hero-map-wrap .map-scroll{margin:0;border-radius:0}
-.hero-map-wrap .w{padding:0}
-.hero-map-wrap .map-note{padding:10px 5%;background:rgba(7,30,61,.6);color:rgba(255,255,255,.45);font-style:italic;font-size:13px;margin:0}
+.pr-text,.pw-desc,.scope-note,.sec-intro,
+td span,.table-intro,.map-note,
+.hero-sub,.quote-text{text-align:justify}
+
+
+.pr-photo{
+  margin-top:36px;
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 4px 24px rgba(0,0,0,.12);
+}
+.pr-photo-img{
+  width:100%;
+  height:340px;
+  object-fit:cover;
+  object-position:center 45%;
+  display:block;
+}
+.pr-photo-caption{
+  background:#f5f7fa;
+  color:#5d6e82;
+  font-size:14px;
+  text-align:center !important;
+  padding:10px 16px;
+  margin:0;
+  border-top:1px solid #dde3ec;
+  font-style:italic;
+}
+
 </style>
+<script>
+function setLang(l) {
+  document.body.classList.remove('lang-en', 'lang-fr');
+  document.body.classList.add('lang-' + l);
+  document.documentElement.lang = l;
+  var enBtn = document.getElementById('bEN');
+  var frBtn = document.getElementById('bFR');
+  if (enBtn) enBtn.classList.toggle('on', l === 'en');
+  if (frBtn) frBtn.classList.toggle('on', l === 'fr');
+}
+function showSc(id) {
+  document.querySelectorAll('.sc-pane').forEach(function(p) {
+    p.style.display = (p.id === 'pane-' + id) ? '' : 'none';
+  });
+  document.querySelectorAll('.sc-tab').forEach(function(b) {
+    var m = b.getAttribute('onclick').match(/showSc\('(\w+)'\)/);
+    if (m) b.classList.toggle('active', m[1] === id);
+  });
+}
+</script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9LJCDQL04W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9LJCDQL04W');
+</script>
 </head>
-<body class="lang-fr">
+<body>
 
-<!-- NAV -->
-<nav class="nav" id="nav">
-  <div class="nav-w">
-    <a class="nav-brand" href="#">
+<!-- ── NAV ── -->
+<nav class="nav" id="mainNav">
+  <div class="nav-inner">
+    <a href="#" class="nav-brand">
       <svg viewBox="0 0 34 34" fill="none">
         <circle cx="17" cy="17" r="15" stroke="rgba(255,255,255,.22)" stroke-width="1.4"/>
         <path d="M17 5C11 5 7 11 7 17s4 12 10 12" stroke="#3db8c1" stroke-width="2.4" stroke-linecap="round"/>
@@ -191,23 +470,229 @@ footer{background:#030d1c;padding:18px 5%}
       </svg>
       <span class="nav-brand-name">Pacific Oil</span>
     </a>
-    <span class="nav-tag">Note à l'attention de l'AFD Pacifique</span>
+    <div class="nav-r">
+      <button class="lbtn on" id="bEN" onclick="setLang('en')">EN</button>
+      <button class="lbtn"    id="bFR" onclick="setLang('fr')">FR</button>
+    </div>
   </div>
 </nav>
 
-<!-- ═══ HERO ════════════════════════════════════ -->
+<!-- ── HERO ── -->
 <div class="hero">
-  <img class="bg" src="img/img_1.jpg" alt="">
-  <div class="hero-ov"></div>
-  <div class="hero-c">
-    <h1>Hub régional de régénération<br>des huiles usagées du Pacifique</h1>
-    <p class="hero-sub">Le projet Pacific Oil propose de transformer les huiles usagées de dix territoires du Pacifique en huile de base Groupe II, depuis un hub industriel basé en Nouvelle-Calédonie. L'AFD finance déjà, via le SPREP, le diagnostic des flux d'huiles usagées dans la région. Nous sollicitons l'AFD pour co-financer l'étude de faisabilité qui fait le lien entre ce diagnostic et la solution industrielle — et pour faciliter le dialogue réglementaire avec l'Australie.</p>
+  <img class="hero-img" src="img/img_1.jpg" alt="Pacific Ocean, Bora Bora">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tag" style="display:inline-block;margin-bottom:12px">
+      <span class="len">Note to AFD Pacific</span>
+      <span class="lfr">Note à l'attention de l'AFD Pacifique</span>
+    </div>
+    <h1 class="hero-title">
+      <span class="len">A regional hub to <em>regenerate</em> Pacific used oil</span>
+      <span class="lfr">Un hub régional pour <em>régénérer</em> les huiles usagées du Pacifique</span>
+    </h1>
+    <p class="hero-sub">
+      <span class="len">Across the Pacific, tens of thousands of tonnes of used oil are burned as fuel each year or stored in deteriorating drums. The <strong>Pacific Oil</strong> initiative proposes to regenerate it into Group II base oil in New Caledonia: economic value redistributed to the contributing territories, a reduction in CO₂ emissions of <abbr class="tip" data-tip-en="Compared to virgin base oil production from crude oil. Source: ifeu / GEIR 2022." data-tip-fr="Par rapport à la production d'huile de base vierge à partir de pétrole brut. Source : ifeu / GEIR 2022." data-tip="Compared to virgin base oil production from crude oil. Source: ifeu / GEIR 2022.">64–71%</abbr>. We are seeking AFD support for the upstream phase — the feasibility study that precedes investment.</span>
+      <span class="lfr">Dans le Pacifique, des dizaines de milliers de tonnes d'huiles usagées sont chaque année brûlées comme combustible ou stockées dans des fûts dégradés. L'initiative <strong>Pacific Oil</strong> propose de les régénérer en huile de base Groupe II en Nouvelle-Calédonie : valeur économique redistribuée aux territoires contributeurs, réduction des émissions de CO₂ de <abbr class="tip" data-tip-en="Compared to virgin base oil production from crude oil. Source: ifeu / GEIR 2022." data-tip-fr="Par rapport à la production d'huile de base vierge à partir de pétrole brut. Source : ifeu / GEIR 2022." data-tip="Par rapport à la production d'huile de base vierge à partir de pétrole brut. Source : ifeu / GEIR 2022.">64 à 71 %</abbr>. Nous sollicitons l'accompagnement de l'AFD pour la phase amont — l'étude de faisabilité qui précède l'investissement.</span>
+    </p>
+    <div class="hero-meta">
+      <div>
+        <div class="hm-lbl"><span class="len">Technology</span><span class="lfr">Technologie</span></div>
+        <div class="hm-val">Revivoil™ · Axens / Itelyum</div>
+      </div>
+      <div>
+        <div class="hm-lbl"><span class="len">Output</span><span class="lfr">Production</span></div>
+        <div class="hm-val"><span class="len">Group II base oil</span><span class="lfr">Huile de base Groupe II</span></div>
+      </div>
+      <div>
+        <div class="hm-lbl"><span class="len">CO₂ reduction</span><span class="lfr">Réduction CO₂</span></div>
+        <div class="hm-val">64 – 71 %</div>
+      </div>
+      <div>
+        <div class="hm-lbl"><span class="len">Hub site</span><span class="lfr">Site du hub</span></div>
+        <div class="hm-val">Nouméa, New Caledonia</div>
+      </div>
+    </div>
+  </div>
+</div>
 
+<!-- ── SECTION 1: THE REGIONAL RESOURCE ── -->
+<section id="resource">
+  <div class="container">
+    <div class="sec-tag"><span class="len">The regional context</span><span class="lfr">Le contexte régional</span></div>
+    <h2 class="sec-title">
+      <span class="len">A dispersed resource, ready to be recovered</span>
+      <span class="lfr">Une ressource dispersée, prête à être valorisée</span>
+    </h2>
+    <p>
+      <span class="len">Used oil is generated wherever engines run: vessels, generators, vehicles and industrial equipment across the Pacific. Structured collection systems exist in five territories: Australia, New Zealand, New Caledonia, Fiji and French Polynesia, through national eco-organisms, environmental levies and dedicated programmes. Elsewhere, collection is sporadic or absent. What has been missing is the regional regeneration facility that gives collected oil its economic value.</span>
+      <span class="lfr">Les huiles usagées sont générées partout où des moteurs fonctionnent : navires, groupes électrogènes, véhicules et équipements industriels à travers le Pacifique. Des systèmes de collecte structurés existent dans cinq territoires (Australie, Nouvelle-Zélande, Nouvelle-Calédonie, Fidji et Polynésie française), via des éco-organismes nationaux, des écotaxes environnementales et des programmes dédiés. Ailleurs, la collecte est ponctuelle ou inexistante. Ce qui manque, c'est l'installation régionale de régénération qui donne à l'huile collectée sa valeur économique.</span>
+    </p>
+    <figure style="margin:24px 0 0">
+  <img src="img/img_2.png" 
+       alt="Regenerated base oil, Group II" 
+       style="width:100%;height:220px;object-fit:cover;object-position:center;border-radius:7px;display:block">
+  <figcaption style="font-size:13px;color:var(--gy);font-style:italic;margin-top:7px;padding-left:10px;border-left:2px solid var(--rule)">
+    <span class="len">Group II base oil, product of the Revivoil™ regeneration process</span>
+    <span class="lfr">Huile de base Groupe II, produit du procédé de régénération Revivoil™</span>
+  </figcaption>
+</figure>
+    <p class="scope-note len">The hub's initial perimeter covers <strong>10 territories</strong> for which feedstock volumes have been documented and estimated from available data. The initiative is open to all Pacific Forum member states; any territory that develops a collection programme and a transport pathway is a potential contributor.</p>
+    <p class="scope-note lfr">Le périmètre initial du hub couvre <strong>10 territoires</strong> pour lesquels les volumes de feedstock ont été documentés et estimés à partir des données disponibles. L'initiative est ouverte à l'ensemble des membres du Forum Pacifique ; tout territoire qui développe un programme de collecte et une voie de transport est un contributeur potentiel.</p>
+    <div class="callout">
+      <p><span class="len">"Pacific countries have established the framework for sustainable waste oil management through regional programmes. What is needed now is a destination that transforms this collected resource into value, within the region."</span>
+      <span class="lfr">« Les pays du Pacifique ont établi le cadre de gestion durable des huiles usagées via des programmes régionaux. Ce dont nous avons besoin maintenant, c'est une destination qui transforme cette ressource collectée en valeur, au sein de la région. »</span></p>
+      <cite><span class="len">Cleaner Pacific 2025, Regional waste management framework</span><span class="lfr">Cleaner Pacific 2025, Cadre régional de gestion des déchets</span></cite>
+    </div>
+    </div>
+
+    <!-- MAP -->
+      </div>
+</section>
+
+<!-- ── SECTION 2: THE PROCESS ── -->
+<section id="process">
+  <div class="container">
+    <div class="sec-tag"><span class="len">The regeneration process</span><span class="lfr">Le procédé de régénération</span></div>
+    <h2 class="sec-title">
+      <span class="len">From used oil to Group II base oil</span>
+      <span class="lfr">De l'huile usagée à l'huile de base Groupe II</span>
+    </h2>
+    <p>
+      <span class="len">The Revivoil™ process, developed jointly by Axens and Itelyum, removes contaminants, water, and degraded additives from used oil through a multi-stage physico-chemical treatment. The output is a Group II base oil, equivalent in quality to a virgin product, suitable for lubricant blending and industrial applications.</span>
+      <span class="lfr">Le procédé Revivoil™, développé conjointement par Axens et Itelyum, élimine les contaminants, l'eau et les additifs dégradés de l'huile usagée par un traitement physico-chimique en plusieurs étapes. Le produit obtenu est une huile de base Groupe II, équivalente en qualité à un produit vierge, adaptée au mélange de lubrifiants et aux applications industrielles.</span>
+    </p>
+    <div class="diagram">
+      <div class="diagram-bar">
+        <span class="diagram-bar-title">Revivoil™ : <span class="len">process overview</span><span class="lfr">schéma de procédé</span></span>
+        <span class="diagram-bar-credit">Axens / Itelyum · <span class="len">licensed technology</span><span class="lfr">technologie brevetée</span></span>
+      </div>
+      <img class="diagram" src="img/img_3.png" alt="Revivoil process diagram">
+      <div class="diagram-foot">
+        <span class="len">Yield: ~75% dry basis. CO₂ reduction vs. virgin oil production: 64–71% (source: ifeu / GEIR 2022). 12 licensed installations worldwide.</span>
+        <span class="lfr">Rendement : ~75 % base sèche. Réduction CO₂ vs. production vierge : 64–71 % (source : ifeu / GEIR 2022). 12 installations licenciées dans le monde.</span>
+      </div>
+    </div>
+    <p>
+      <span class="len">At a capacity of 35,000 t/yr, the hub would avoid approximately 40,000 tonnes of CO₂-equivalent per year compared to combustion, while producing Group II base oil sold to international markets, with dividends redistributed to shareholder territories proportional to their collection and transport costs.</span>
+      <span class="lfr">À une capacité de 35 000 t/an, le hub éviterait environ 40 000 tonnes d'équivalent CO₂ par an par rapport à la combustion, tout en produisant une huile de base Groupe II vendue sur les marchés internationaux, les dividendes étant redistribués aux territoires actionnaires proportionnellement à leurs coûts de collecte et de transport.</span>
+    </p>
+  </div>
+</section>
+
+<!-- ── SECTION 3: HOW THE HUB WORKS ── -->
+<section id="model">
+  <div class="container">
+    <div class="sec-tag"><span class="len">The operating model</span><span class="lfr">Le modèle de fonctionnement</span></div>
+    <h2 class="sec-title">
+      <span class="len">Three principles that make the model work</span>
+      <span class="lfr">Trois principes qui font fonctionner le modèle</span>
+    </h2>
+    <p>
+      <span class="len">The hub operates as a non-profit structure. Value is not captured at the centre; it is distributed to contributing territories through three interlocking mechanisms.</span>
+      <span class="lfr">Le hub fonctionne comme une structure à but non lucratif. La valeur n'est pas captée au centre ; elle est distribuée aux territoires contributeurs via trois mécanismes imbriqués.</span>
+    </p>
+    <div class="principles">
+      <div class="pr-card">
+        <div class="pr-n">01</div>
+        <div class="pr-title"><span class="len">Local eco-taxes fund collection</span><span class="lfr">Les écotaxes locales financent la collecte</span></div>
+        <div class="pr-text"><span class="len">Each territory finances its own collection and pre-transport through existing environmental levies. Collection infrastructure already exists across most territories. The hub gives it economic value and redistributes it.</span><span class="lfr">Chaque territoire finance sa propre collecte et son pré-transport via les taxes environnementales existantes. La collecte existe déjà dans la plupart des territoires. Le hub lui donne une valeur économique et la redistribue.</span></div>
+      </div>
+      <div class="pr-card">
+        <div class="pr-n">02</div>
+        <div class="pr-title"><span class="len">Freight is mutualised and negotiated</span><span class="lfr">Le fret est mutualisé et négocié</span></div>
+        <div class="pr-text"><span class="len">Regional shipping routes (Swire, NPDL) already connect these territories. By consolidating volumes, the hub negotiates competitive bulk rates, not charged back to contributing territories.</span><span class="lfr">Les routes maritimes régionales (Swire, NPDL) relient déjà ces territoires. En consolidant les volumes, le hub négocie des tarifs compétitifs, non répercutés sur les territoires contributeurs.</span></div>
+      </div>
+      <div class="pr-card">
+        <div class="pr-n">03</div>
+        <div class="pr-title"><span class="len">Dividends return to territories</span><span class="lfr">Les dividendes reviennent aux territoires</span></div>
+        <div class="pr-text"><span class="len">Shareholding is proportional to collection and transport costs (not volumes), favouring smaller islands with higher unit costs. Dividends are results-based, not guaranteed: they represent a share in the value created by regeneration.</span><span class="lfr">Les participations sont proportionnelles aux coûts de collecte et de transport (et non aux volumes), favorisant les petites îles aux coûts unitaires plus élevés. Les dividendes sont basés sur les résultats, non garantis : ils représentent une part de la valeur créée par la régénération.</span></div>
+      </div>
+
+    </div>
+
+  <div class="pr-photo">
+    <img src="img/img_4.png" alt="Highland Chief, Swire Shipping, Pacific" class="pr-photo-img">
+    <p class="pr-photo-caption">
+      <span class="len">Highland Chief · Swire Shipping Pacific service : the regional shipping network that makes freight mutualisation possible.</span>
+      <span class="lfr">Highland Chief · Service Pacifique de Swire Shipping : le réseau maritime régional qui rend possible la mutualisation du fret.</span>
+    </p>
   </div>
 
-  <!-- Carte dans le hero -->
-  <div style="position:relative;z-index:2;width:100%;max-width:var(--max);margin:0 auto;padding:0 5% 4vh">
-    <div class="map-scroll" style="margin:0">
+  </div>
+</section>
+
+<!-- ── SECTION 4: REGULATORY ── -->
+<section id="regulatory">
+  <div class="container">
+    <div class="sec-tag"><span class="len">Legal framework</span><span class="lfr">Cadre juridique</span></div>
+    <h2 class="sec-title">
+      <span class="len">Transboundary movements: pathway per territory</span>
+      <span class="lfr">Mouvements transfrontaliers : voie par territoire</span>
+    </h2>
+    <p>
+      <span class="len">The legal pathway for transboundary movements of used oil to New Caledonia has been identified for each territory, at varying stages of progress. The primary constraint is New Caledonia itself: PTOM status currently prohibits hazardous waste imports, liftable through an R9 recovery authorisation whose legal basis is established under EU Waste Framework Directive Art. 21. For island territories, the key distinction: the Waigani Convention prohibits hazardous waste <em>imports into</em> Forum Island Countries — it does not restrict <em>exports from</em> them to a non-FIC territory such as New Caledonia.</span>
+      <span class="lfr">La voie juridique pour les mouvements transfrontaliers d'huiles usagées vers la Nouvelle-Calédonie est identifiée pour chaque territoire, à des stades d'avancement différents. Le verrou principal est celui de la Nouvelle-Calédonie elle-même : le statut PTOM interdit actuellement les imports de déchets dangereux, levable par une autorisation de valorisation R9 (Haut-Commissaire / DIMENC), dont le cadre juridique est établi par la Directive-cadre déchets UE art. 21. Pour les territoires insulaires, la distinction clé : la Convention de Waigani interdit les imports de déchets dangereux <em>vers</em> les pays insulaires — elle ne restreint pas les exports <em>depuis</em> ceux-ci vers un territoire non-FIC comme la Nouvelle-Calédonie.</span>
+    </p>
+<table class="rt">
+  <thead>
+    <tr>
+      <th><span class="len">Territory</span><span class="lfr">Territoire</span></th>
+      <th><span class="len">Regulatory pathway</span><span class="lfr">Cadre réglementaire</span></th>
+      <th><span class="len">Status</span><span class="lfr">Statut</span></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Nouvelle-Calédonie<br><small class="len">Hub site</small><small class="lfr">Site du hub</small></td>
+      <td data-label="Regulatory framework / Cadre réglementaire"><span class="len">Hazardous waste imports prohibited under the PTOM framework. Liftable by R9 recovery authorisation (Haut-Commissaire / DIMENC), consistent with EU Waste Framework Directive Art. 21. Two-step process: <strong>pre-consent before construction</strong> (confirms legal basis for investors), then <strong>full authorisation at commissioning</strong>. Obtaining pre-consent first is the correct Basel sequencing — it de-risks the project before capital is committed.</span><span class="lfr">Importation de déchets dangereux interdite dans le cadre PTOM. Levable par autorisation de valorisation R9 (Haut-Commissaire / DIMENC), conforme à la Directive-cadre déchets UE art. 21. Processus en deux temps : <strong>pré-consentement avant construction</strong> (valide la base juridique pour les investisseurs), puis <strong>autorisation définitive à la mise en service</strong>. Obtenir le pré-consentement en premier est le séquençage Bâle standard — il réduit le risque avant tout engagement de capital.</span></td>
+      <td data-label="Status / Statut"><span class="pill pill-pending len">R9 · 2-step</span><span class="pill pill-pending lfr">R9 · 2 étapes</span></td>
+    </tr>
+    <tr>
+      <td>New Zealand</td>
+      <td data-label="Regulatory framework / Cadre réglementaire"><span class="len">Basel Convention Party. Bilateral agreement under Basel Art. 11, standard administrative procedure.</span><span class="lfr">Partie à la Convention de Bâle. Accord bilatéral Basel Art. 11, procédure administrative standard.</span></td>
+      <td data-label="Status / Statut"><span class="pill pill-pending len">Bilateral required</span><span class="pill pill-pending lfr">Bilatéral requis</span></td>
+    </tr>
+    <tr>
+      <td>Australia</td>
+      <td data-label="Regulatory framework / Cadre réglementaire"><span class="len">Hazardous Waste Act 1989 (DCCEEW). R9 export permit available. SPREP/DFAT as political lever.</span><span class="lfr">Hazardous Waste Act 1989 (DCCEEW). Permis d'export R9 disponible. SPREP/DFAT comme levier politique.</span></td>
+      <td data-label="Status / Statut"><span class="pill pill-pending len">Permit required</span><span class="pill pill-pending lfr">Permis requis</span></td>
+    </tr>
+    <tr>
+      <td>Fiji</td>
+      <td data-label="Regulatory framework / Cadre réglementaire"><span class="len">Fiji has not ratified the Basel Convention. Bilateral agreement outside standard framework required; precedent exists (Tuvalu, Tonga, Cook Islands).</span><span class="lfr">Fidji n'a pas ratifié la Convention de Bâle. Accord bilatéral hors cadre standard ; précédents existants (Tuvalu, Tonga, Îles Cook).</span></td>
+      <td data-label="Status / Statut"><span class="pill pill-bilateral len">Bilateral (non-Basel)</span><span class="pill pill-bilateral lfr">Bilatéral (hors Bâle)</span></td>
+    </tr>
+    <tr>
+      <td><span class="len">Pacific Island Countries<br><small>PNG, Solomons, Vanuatu, Samoa, Tonga, Wallis &amp; Futuna</small></span><span class="lfr">Pays insulaires du Pacifique<br><small>PNG, Salomon, Vanuatu, Samoa, Tonga, Wallis &amp; Futuna</small></span></td>
+      <td data-label="Regulatory framework / Cadre réglementaire"><span class="len">Waigani Convention prohibits hazardous waste imports <em>to</em> Forum Island Countries; not exports <em>from</em> them. Exports to NC (non-FIC) are permitted. France has not ratified Waigani.</span><span class="lfr">La Convention de Waigani interdit les imports de déchets dangereux <em>vers</em> les pays insulaires ; pas les exports <em>depuis</em> ceux-ci. Les exports vers la NC (non-FIC) sont autorisés. La France n'a pas ratifié Waigani.</span></td>
+      <td data-label="Status / Statut"><span class="pill pill-open len">Pathway open</span><span class="pill pill-open lfr">Voie ouverte</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<div style="margin-top:2rem;padding:1.5rem 2rem;background:rgba(61,184,193,0.07);border-left:3px solid #3db8c1;border-radius:4px;">
+  <p style="margin:0;line-height:1.7;font-size:1.05rem;">
+    <span class="len">The complexity of this regulatory framework is not a fundamental obstacle — it is a sequenced work programme, with identified steps and known interlocutors. Initial exchanges with DIMENC have confirmed the current situation: hazardous waste imports are prohibited, and no procedure exists. This is precisely what this project is here to change. SPREP, as depositary of the Waigani Convention and a regional coordinator recognised by territorial governments, is the actor whose involvement transforms this dossier: its capacity to approach all ten governments simultaneously for volume commitments, and to facilitate bilateral negotiations with the competent Basel authorities of each territory, makes it the decisive factor in the speed at which authorisations are obtained. French accession to Waigani — an INTEGRE recommendation since 2016 — would further consolidate this framework for territories outside the Basel system, but is not a precondition. With this institutional support, the regulatory pathway is realistic and time-bounded.</span>
+    <span class="lfr">La complexité de ce cadre réglementaire ne constitue pas un obstacle de fond : elle constitue un programme de travail séquencé, dont les étapes sont identifiées et les interlocuteurs connus. Les premières démarches auprès de la DIMENC ont confirmé l'état actuel : l'importation de déchets dangereux est interdite, et aucune procédure n'existe. C'est précisément ce que ce projet vient changer. Le SPREP, en tant que dépositaire de la Convention de Waigani et coordinateur régional reconnu par les gouvernements territoriaux, est l'acteur dont l'implication transforme ce dossier : sa capacité à approcher simultanément les 10 gouvernements pour des engagements de volumes, et à faciliter les négociations bilatérales avec les autorités compétentes Bâle de chaque territoire, fait de lui le facteur déterminant de la vitesse d'obtention des autorisations. L'adhésion de la France à Waigani — recommandation INTEGRE depuis 2016 — consoliderait ce cadre pour les territoires hors système Bâle, sans en être un prérequis. Avec cet appui institutionnel, la trajectoire réglementaire est réaliste et bornée dans le temps.</span>
+  </p>
+</div>
+
+  </div>
+</section>
+
+<!-- ── SECTION 5: VOLUME SCENARIOS ── -->
+<section id="volumes">
+  <div class="container">
+    <div class="sec-tag"><span class="len">Feedstock assessment</span><span class="lfr">Évaluation du gisement</span></div>
+    <h2 class="sec-title">
+      <span class="len">Volume scenarios by territory</span>
+      <span class="lfr">Scénarios de volume par territoire</span>
+    </h2>
+    <p>
+      <span class="len">Volumes were established territory by territory from documented generation rates, existing collection efficiencies, and comparable benchmarks. For several island territories, the <abbr class="tip" data-tip-en="Secretariat of the Pacific Regional Environment Programme Waste Assessment Programme — regional used oil and hazardous waste characterisation programme run by SPREP across Pacific island countries." data-tip-fr="Programme d'évaluation des déchets du SPREP — programme régional de caractérisation des huiles usagées et déchets dangereux mené par le SPREP dans les pays insulaires du Pacifique." data-tip="Secretariat of the Pacific Regional Environment Programme Waste Assessment Programme — regional used oil and hazardous waste characterisation programme run by SPREP across Pacific island countries.">SWAP</abbr> programme provided the baseline data. The prudent scenario already exceeds the 35,000 t/yr viability threshold.</span>
+      <span class="lfr">Les volumes ont été établis territoire par territoire à partir des taux de génération documentés, des efficacités de collecte existantes et de benchmarks comparables. Pour plusieurs territoires insulaires, le programme <abbr class="tip" data-tip-en="Secretariat of the Pacific Regional Environment Programme Waste Assessment Programme — regional used oil and hazardous waste characterisation programme run by SPREP across Pacific island countries." data-tip-fr="Programme d'évaluation des déchets du SPREP — programme régional de caractérisation des huiles usagées et déchets dangereux mené par le SPREP dans les pays insulaires du Pacifique." data-tip="Programme d'évaluation des déchets du SPREP — programme régional de caractérisation des huiles usagées et déchets dangereux mené par le SPREP dans les pays insulaires du Pacifique.">SWAP</abbr> a fourni les données de référence. Le scénario prudent dépasse déjà le seuil de viabilité de 35 000 t/an.</span>
+    </p>
+    <div class="map-scroll">
 <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
 <style>
 /* tspan replaced by .len/.lfr text pairs */
@@ -219,7 +704,6 @@ footer{background:#030d1c;padding:18px 5%}
 .ml-leg{font-size:14px;fill:rgba(255,255,255,.60)}
 .ml-title{font-size:21px;fill:rgba(255,255,255,.8);font-weight:600;font-family:'Fraunces',Georgia,serif}
 .ml-subtitle{font-size:15px;fill:rgba(255,255,255,.5)}
-.len{display:none !important}
 </style>
 
 <defs>
@@ -517,274 +1001,609 @@ footer{background:#030d1c;padding:18px 5%}
 
 </svg>
     </div>
-    <p class="map-note" style="color:rgba(255,255,255,.5)">10 territoires · volumes captables · distances depuis Nouméa · routes probables vers le hub</p>
-  </div>
+    <p class="map-note">
+      <span class="len">Optimal scenario · 40,160 t/year · 10 territories. NZ + Australia = 65–75% of feedstock.</span>
+      <span class="lfr">Scénario optimal · 40 160 t/an · 10 territoires. NZ + Australie = 65–75 % du gisement.</span>
+    </p>
 
-</div>
-
-<!-- ═══ S1 · LE PROJET ══════════════════════════ -->
-<section id="projet">
-  <div class="w">
-    <div class="stag">Le projet</div>
-    <h2>Technologie éprouvée, partenaires industriels engagés</h2>
-
-    <!-- Économie circulaire — mise en valeur -->
-    <div class="ec-banner">
-      <div class="stag">Économie circulaire</div>
-      <h3>L'huile usagée comme ressource, pas comme déchet</h3>
-      <p>Pacific Oil applique au Pacifique les principes de l'économie circulaire : fermer la boucle des lubrifiants usagés, régénérer la matière, redistribuer la valeur. Là où la filière actuelle détruit la molécule, le hub la réutilise. Là où la valeur quittait la région, elle y reste — sous forme de dividendes annuels aux territoires contributeurs.</p>
+    <div class="sc-tabs">
+      <button class="sc-tab" onclick="showSc('prob')">
+        <span class="len">Prudent · 35,160 t</span><span class="lfr">Prudent · 35 160 t</span>
+      </button>
+      <button class="sc-tab active" onclick="showSc('opt')">
+        <span class="len">Optimal · 40,160 t</span><span class="lfr">Optimal · 40 160 t</span>
+      </button>
+      <button class="sc-tab" onclick="showSc('amb')">
+        <span class="len">Ambitious · 54,060 t</span><span class="lfr">Ambitieux · 54 060 t</span>
+      </button>
     </div>
-
-    <p class="intro">La régénération R9 via Revivoil™ transforme l'huile usagée en huile de base Groupe II certifiée, avec 64 à 71 % d'émissions de CO₂ en moins par rapport à la production pétrolière vierge. Le SPREP reconnaît la nécessité et la pertinence d'une coordination régionale sur ce projet. Son engagement opérationnel est conditionné au financement des actions de coordination.</p>
-
-    <div class="cards">
-      <div class="card">
-        <h4>Technologie éprouvée · 12 installations mondiales</h4>
-        <p>Revivoil™ est la seule technologie R9 certifiée produisant du Groupe II à partir d'huile usagée. Itelyum traite plus de 200 000 t/an en Europe. Aucun risque technologique.</p>
-      </div>
-      <div class="card">
-        <h4>Gisement documenté · 4 scénarios</h4>
-        <p>De 20 000 à 54 000 t/an selon le scénario. Volumes établis à partir des données SWAP/SPREP et de benchmarks sectoriels territoire par territoire.</p>
-      </div>
-      <div class="card">
-        <h4>Engagement SPREP · coordination régionale</h4>
-        <p>Le SPREP est l'organisme régional mandaté pour coordonner les territoires. Son rôle dans ce projet est d'envoyer le signal institutionnel aux 10 territoires.</p>
-      </div>
-      <div class="card">
-        <h4>Ancrage régional · SWAP · coopération internationale</h4>
-        <p>Le projet s'inscrit dans le programme SWAP financé par l'AFD, dans Cleaner Pacific 2035 et dans le Cadre d'économie circulaire du Pacifique adopté par le SPREP en 2023.</p>
-      </div>
-    </div>
-
-    <!-- Carte SVG des territoires -->
-    <div style="margin:36px 0;background:var(--dark2);border-radius:10px;overflow:hidden;padding:8px">
-      <div class="map-wrap" style="width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch">
-      </div>
-    </div>
-
-    <!-- Schéma procédé pleine largeur -->
-    <div class="img-block" style="background:var(--light);padding:16px;border-radius:10px;border:1px solid var(--rule)">
-      <img src="img/img_3.png" alt="Schéma du procédé Revivoil™" style="border:none">
-      <p class="img-cap">Procédé Revivoil™ · Axens / Itelyum · Huile usagée collectée → Huile de base Groupe II certifiée</p>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ S2 · LE GAIN ═════════════════════════════ -->
-<section id="gain" style="background:var(--dark)">
-  <div class="w">
-    <div class="stag" style="color:var(--teal)">Le gain pour la région</div>
-    <h2 class="light">D'un déchet sans valeur à une ressource rentable</h2>
-    <p style="color:rgba(255,255,255,.55);font-size:15px;line-height:1.72;margin-bottom:0;text-align:justify;hyphens:auto">Les huiles usagées sont brûlées, sur place ou après export. Le territoire paie la collecte, parfois le transport et parfois le brûleur lui-même. Qu'elle soit incinérée localement ou exportée, la molécule est détruite et la valeur perdue. Pacific Oil ancre cette valeur dans le Pacifique.</p>
-
-    <!-- Huile dorée — le produit final -->
-    <div style="margin:28px 0;border-radius:10px;overflow:hidden;position:relative;height:280px">
-      <img src="img/img_2.png" alt="Huile de base Groupe II régénérée" style="width:100%;height:100%;object-fit:cover;object-position:center 40%;border-radius:10px">
-      <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(7,30,61,.85) 0%,rgba(7,30,61,.3) 50%,rgba(7,30,61,.05) 100%);border-radius:10px"></div>
-      <div style="position:absolute;bottom:22px;left:24px">
-        <div style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:6px">Le produit final</div>
-        <div style="font-size:17px;font-weight:700;color:#fff">Huile de base Groupe II · qualité certifiée</div>
-        <div style="font-size:13px;color:rgba(255,255,255,.5);margin-top:3px">Identique à l'huile vierge · prête à être additionnée en lubrifiant</div>
-      </div>
-    </div>
-
-    <div class="stats-band">
-      <div class="stat">
-        <div class="stat-l">Situation actuelle · R1 combustion</div>
-        <div class="stat-v red">200 – 500 €/t</div>
-        <div class="stat-d">Valeur captée par le brûleur. Le territoire ne récupère rien sur la molécule détruite.</div>
-      </div>
-      <div class="stat">
-        <div class="stat-l">Avec le hub · R9 régénération</div>
-        <div class="stat-v">780 – 980 €/t</div>
-        <div class="stat-d">Prix de vente huile de base Groupe II FOB Singapore. Source : ICIS Q4 2025.</div>
-      </div>
-      <div class="stat">
-        <div class="stat-l">Dividendes annuels redistribués</div>
-        <div class="stat-v">~9,8 M€/an</div>
-        <div class="stat-d">Entre 10 territoires au prorata. NC ~1 M€ · NZ ~4,5 M€ · PNG ~2 M€ · Fidji ~550 k€.</div>
-      </div>
-    </div>
-
-    <p style="color:rgba(255,255,255,.3);font-size:13px;line-height:1.7;text-align:justify;hyphens:auto;max-width:none">À 35 000 t traitées/an et un rendement de 75 % sur base sèche, le hub produit ~26 250 t d'huile de base Groupe II. Chiffre d'affaires annuel ~20 M€ · EBITDA ~10 M€ dont ~9,8 M€ redistribués aux territoires. Sources : ICIS Base Oils Asia-Pacific, CONOU/Deloitte-EY 2023, étude économique Pacific Oil février 2026.</p>
+    <div id="pane-prob" class="sc-pane" style="display:none"><table class="vt">
+  <thead><tr>
+    <th><span class="len">Territory</span><span class="lfr">Territoire</span></th>
+    <th class="r"><span class="len">Volume (t/yr)</span><span class="lfr">Volume (t/an)</span></th>
+  </tr></thead>
+  <tbody>
+<tr><td>New Zealand</td><td class='r'>16,000 t</td></tr>
+<tr><td>PNG</td><td class='r'>7,500 t</td></tr>
+<tr><td>Australia</td><td class='r'>4,500 t</td></tr>
+<tr><td>Fiji</td><td class='r'>2,000 t</td></tr>
+<tr><td>Polynésie française</td><td class='r'>1,500 t</td></tr>
+<tr><td>Nouvelle-Calédonie</td><td class='r'>1,500 t</td></tr>
+<tr><td>Salomon / Solomons</td><td class='r'>1,000 t</td></tr>
+<tr><td>Samoa</td><td class='r'>400 t</td></tr>
+<tr><td>Tonga</td><td class='r'>350 t</td></tr>
+<tr><td>Vanuatu</td><td class='r'>330 t</td></tr>
+<tr><td>Wallis &amp; Futuna</td><td class='r'>80 t</td></tr>
+    <tr class="total"><td><strong><span class="len">Total</span><span class="lfr">Total</span></strong></td><td class="r"><strong>35,160 t</strong></td></tr>
+  </tbody>
+</table>
+<p class="sc-note len">Prudent scenario: exceeds the 35,000 t/yr viability threshold. Volumes defensible territory by territory on the basis of documented generation rates and existing collection infrastructure.</p>
+<p class="sc-note lfr">Scénario prudent : dépasse le seuil de viabilité de 35 000 t/an. Volumes défendables territoire par territoire sur la base des taux de génération documentés et des infrastructures de collecte existantes.</p></div>
+    <div id="pane-opt"  class="sc-pane"><table class="vt">
+  <thead><tr>
+    <th><span class="len">Territory</span><span class="lfr">Territoire</span></th>
+    <th class="r"><span class="len">Volume (t/yr)</span><span class="lfr">Volume (t/an)</span></th>
+  </tr></thead>
+  <tbody>
+<tr><td>New Zealand</td><td class='r'>16,000 t</td></tr>
+<tr><td>PNG</td><td class='r'>8,500 t</td></tr>
+<tr><td>Australia</td><td class='r'>7,000 t</td></tr>
+<tr><td>Nouvelle-Calédonie</td><td class='r'>3,000 t</td></tr>
+<tr><td>Fiji</td><td class='r'>2,000 t</td></tr>
+<tr><td>Polynésie française</td><td class='r'>1,500 t</td></tr>
+<tr><td>Salomon / Solomons</td><td class='r'>1,000 t</td></tr>
+<tr><td>Samoa</td><td class='r'>400 t</td></tr>
+<tr><td>Tonga</td><td class='r'>350 t</td></tr>
+<tr><td>Vanuatu</td><td class='r'>330 t</td></tr>
+<tr><td>Wallis &amp; Futuna</td><td class='r'>80 t</td></tr>
+    <tr class="total"><td><strong><span class="len">Total</span><span class="lfr">Total</span></strong></td><td class="r"><strong>40,160 t</strong></td></tr>
+  </tbody>
+</table>
+<p class="sc-note len">Optimal scenario: assumes progressive improvement in collection efficiency in PNG and NZ, and partial unlocking of Australian flows via regulatory pathway.</p>
+<p class="sc-note lfr">Scénario optimal : suppose une amélioration progressive de l'efficacité de collecte en PNG et en NZ, et un déblocage partiel des flux australiens via la voie réglementaire.</p></div>
+    <div id="pane-amb"  class="sc-pane" style="display:none"><table class="vt">
+  <thead><tr>
+    <th><span class="len">Territory</span><span class="lfr">Territoire</span></th>
+    <th class="r"><span class="len">Volume (t/yr)</span><span class="lfr">Volume (t/an)</span></th>
+  </tr></thead>
+  <tbody>
+<tr><td>New Zealand</td><td class='r'>22,000 t</td></tr>
+<tr><td>Australia</td><td class='r'>12,000 t</td></tr>
+<tr><td>PNG</td><td class='r'>10,000 t</td></tr>
+<tr><td>Nouvelle-Calédonie</td><td class='r'>4,000 t</td></tr>
+<tr><td>Fiji</td><td class='r'>2,000 t</td></tr>
+<tr><td>Polynésie française</td><td class='r'>1,900 t</td></tr>
+<tr><td>Salomon / Solomons</td><td class='r'>1,000 t</td></tr>
+<tr><td>Samoa</td><td class='r'>400 t</td></tr>
+<tr><td>Tonga</td><td class='r'>350 t</td></tr>
+<tr><td>Vanuatu</td><td class='r'>330 t</td></tr>
+<tr><td>Wallis &amp; Futuna</td><td class='r'>80 t</td></tr>
+    <tr class="total"><td><strong><span class="len">Total</span><span class="lfr">Total</span></strong></td><td class="r"><strong>54,060 t</strong></td></tr>
+  </tbody>
+</table>
+<p class="sc-note len">Ambitious scenario: requires full NZ collection efficiency (Italian-level benchmark) and full Australian regulatory unlocking via DCCEEW. Upper bound; not used for business case baseline.</p>
+<p class="sc-note lfr">Scénario ambitieux : requiert une efficacité de collecte NZ maximale (référence italienne) et un déblocage réglementaire australien complet via DCCEEW. Borne haute ; non retenu comme base du business plan.</p></div>
   </div>
 </section>
 
-<!-- ═══ S3 · LA SÉQUENCE ═════════════════════════ -->
-<section id="sequence">
-  <div class="w">
-    <div class="stag">La séquence de développement</div>
-    <h2>Trois étapes, un accompagnement à construire ensemble</h2>
-    <p class="intro">L'AFD intervient dès l'étape 1, ce qui débloque la coordination régionale et l'ensemble du processus.</p>
+<!-- ── SECTION 6: AFD PATHWAY ── -->
+<section id="pathway">
+  <div class="container">
+    <div class="sec-tag"><span class="len">Support requested</span><span class="lfr">Accompagnement sollicité</span></div>
+    <h2 class="sec-title">
+      <span class="len">What we are asking AFD to support</span>
+      <span class="lfr">Ce que nous demandons à l'AFD</span>
+    </h2>
+    <p>
+      <span class="len">AFD already co-funds SWAP through SPREP — the programme that documented the used oil challenge across Pacific island territories. The hub is the operational response to that diagnosis. AFD is the natural partner for the three upstream steps that condition everything else: without sample analysis, feedstock quality is unknown; without a regional workshop, volume commitments cannot be obtained; without volume commitments, the feasibility study cannot be finalised. The three actions below are concrete, sequenced, and low-cost relative to the investment they unlock.</span>
+      <span class="lfr">L'AFD co-finance déjà SWAP via le SPREP — le programme qui a documenté le défi des huiles usagées dans les territoires insulaires du Pacifique. Le hub est la réponse opérationnelle à ce diagnostic. L'AFD est le partenaire naturel des trois étapes amont qui conditionnent tout le reste : sans analyse des échantillons, la qualité du feedstock est inconnue ; sans atelier régional, les engagements de volume ne peuvent être obtenus ; sans engagements de volume, l'étude de faisabilité ne peut être finalisée. Les trois actions ci-dessous sont concrètes, séquencées, et d'un coût modeste au regard de l'investissement qu'elles débloquent.</span>
+    </p>
+    <div class="pathway">
 
-    <div class="seq-list">
-      <div class="seq">
-        <div class="seq-n">1</div>
-        <div class="seq-body">
-          <div class="seq-stag">Demande initiale · immédiate</div>
-          <div class="seq-t">Envoi des échantillons · 10 territoires → Itelyum</div>
-          <p class="seq-p">Chaque territoire envoie 10 litres d'huile usagée au laboratoire Itelyum (Pieve Fissiraga, Italie), expédiés comme produit fini via coursier standard. Itelyum réalise une première analyse qualitative gratuite. Ce résultat est le feu vert technique qui mobilise le SPREP à coordonner les territoires.</p>
-          <div class="pill"><span class="pill-v">5 000 – 10 000 €</span><span class="pill-l">Frais de transport · 10 territoires</span></div>
-          <div class="contact-box">
-            <div class="label">Adresse d'expédition</div>
-            <div class="lines">Itelyum Regeneration SpA · Laboratorio Chimico<br>Via Tavernelle 19 · 26854 Pieve Fissiraga (LO) · Italy<br><strong>Dr. Giuseppe Magnone</strong> · +39 334 693 3287</div>
+      <div class="pw">
+        <div class="pw-n">1</div>
+        <div>
+          <div class="pw-title"><span class="len">Fund the collection and shipment of used oil samples from each territory</span><span class="lfr">Financer la collecte et l'envoi d'échantillons d'huiles usagées depuis chaque territoire</span></div>
+          <div class="pw-desc">
+            <p><span class="len"><strong>What we are asking:</strong> Support the collection of a representative used oil sample from each of the ten contributing territories and their shipment to the Itelyum laboratory in Europe for technical analysis. Trecodec in New Caledonia is ready. SPREP, through the SWAP programme, is positioned to coordinate the other nine territories simultaneously. Estimated cost: €1,500–3,000.</span><span class="lfr"><strong>Ce que nous demandons :</strong> Financer la collecte d'un échantillon représentatif d'huile usagée dans chacun des dix territoires contributeurs et leur envoi au laboratoire Itelyum en Europe pour analyse technique. Trecodec en Nouvelle-Calédonie est prêt. Le SPREP, via le programme SWAP, est en mesure de coordonner les neuf autres territoires simultanément. Coût estimé : 1 500–3 000 €.</span></p>
+            <p><span class="len"><strong>Why it matters:</strong> The composition of used oil varies between territories — New Caledonian oil is heavier (mining); New Zealand oil is lighter (automotive). This preliminary analysis pre-qualifies the feedstock at minimal cost: it confirms Pacific oils are compatible with the Revivoil™ process before committing to the full Axens / Itelyum pre-study. It is the lowest-cost filter in the entire sequence, and the one that conditions all subsequent steps.</span><span class="lfr"><strong>Pourquoi c'est nécessaire :</strong> La composition des huiles usagées varie d'un territoire à l'autre — l'huile calédonienne est plus lourde (mines) ; l'huile néo-zélandaise est plus légère (automobile). Cette analyse préliminaire pré-qualifie le feedstock à coût minimal : elle confirme que les huiles du Pacifique sont compatibles avec le procédé Revivoil™ avant d'engager la pré-étude complète Axens / Itelyum. C'est le filtre le moins coûteux de toute la séquence, et celui qui conditionne toutes les étapes suivantes.</span></p>
           </div>
         </div>
       </div>
 
-      <div class="seq">
-        <div class="seq-n" style="background:var(--dark);color:var(--teal);border:2px solid var(--teal)">↔</div>
-        <div class="seq-body">
-          <div class="seq-stag">Condition préalable · rôle SPREP</div>
-          <div class="seq-t">Contractualisation des engagements de volumes</div>
-          <p class="seq-p">Avant de lancer l'étude technique, chaque territoire doit formaliser son engagement de volume auprès du hub. Cette contractualisation — accord de principe sur les volumes et les conditions de participation — est du ressort du SPREP en tant que coordinateur régional. C'est l'une des actions clés que le financement de la phase amont doit permettre de déclencher.</p>
+      <div class="pw">
+        <div class="pw-n">2</div>
+        <div>
+          <div class="pw-title"><span class="len">Co-fund a regional launch workshop convened by SPREP</span><span class="lfr">Co-financer un atelier de lancement régional convoqué par le SPREP</span></div>
+          <div class="pw-desc">
+            <p><span class="len"><strong>What we are asking:</strong> Support a SPREP-convened regional workshop bringing together representatives from the ten contributing territories and the Axens technical team. The workshop presents the preliminary sample analysis results and collects written statements of intent on annual feedstock volumes from each territory. Estimated cost: €20,000–30,000.</span><span class="lfr"><strong>Ce que nous demandons :</strong> Financer un atelier régional convoqué par le SPREP réunissant les représentants des dix territoires contributeurs et l'équipe technique Axens. L'atelier présente les résultats préliminaires d'analyse des échantillons et recueille des déclarations d'intention écrites sur les volumes annuels de feedstock de chaque territoire. Coût estimé : 20 000–30 000 €.</span></p>
+            <p><span class="len"><strong>Why it matters:</strong> Volume commitments from the territories are the primary condition for finalising the financial model and opening discussions with investment-phase financiers. No single territory or project promoter can obtain them simultaneously from ten governments. SPREP can. The workshop is the mechanism. AFD's co-funding signals institutional support, which itself reduces territorial hesitation.</span><span class="lfr"><strong>Pourquoi c'est nécessaire :</strong> Les engagements de volume des territoires sont la condition première pour finaliser le modèle financier et ouvrir les discussions avec les financeurs de la phase investissement. Aucun territoire isolé ni le porteur de projet ne peut les obtenir simultanément auprès de dix gouvernements. Le SPREP, oui. L'atelier est le mécanisme. Le co-financement de l'AFD envoie un signal de soutien institutionnel qui réduit les hésitations territoriales.</span></p>
+          </div>
         </div>
       </div>
 
-      <div class="seq">
-        <div class="seq-n">2</div>
-        <div class="seq-body">
-          <div class="seq-stag">Étude de confirmation technique</div>
-          <div class="seq-t">Analyse de faisabilité Axens / Itelyum</div>
-          <p class="seq-p">Sur la base des analyses préliminaires, Axens et Itelyum conduisent une étude technique complète : analyse qualitative des feedstocks des 10 territoires, dimensionnement de l'installation, validation du procédé Revivoil™, rendements et qualité de sortie. Ce document constitue le socle pour les financeurs de l'investissement.</p>
-          <div class="pill"><span class="pill-v">~150 000 €</span><span class="pill-l">Étude technique complète</span></div>
+      <div class="pw">
+        <div class="pw-n">3</div>
+        <div>
+          <div class="pw-title"><span class="len">Fund the Axens / Itelyum technical pre-study</span><span class="lfr">Financer la pré-étude technique Axens / Itelyum</span></div>
+          <div class="pw-desc">
+            <p><span class="len"><strong>What we are asking:</strong> Co-fund the technical pre-study conducted by Axens and Itelyum — the opening phase of the Revivoil™ licensing process. This study covers feedstock characterisation from each territory, process calibration, plant sizing, yield projections and the regulatory pathway. Estimated cost: ~€150,000, absorbed into the final CAPEX. Potential co-funders alongside AFD: Province Sud, GEF ISLANDS.</span><span class="lfr"><strong>Ce que nous demandons :</strong> Co-financer la pré-étude technique conduite par Axens et Itelyum — phase d'ouverture du processus de licence Revivoil™. Cette étude couvre la caractérisation du feedstock par territoire, le calibrage du procédé, le dimensionnement de l'installation, les projections de rendement et la feuille de route réglementaire. Coût estimé : ~150 000 €, absorbés dans le CAPEX final. Co-financeurs potentiels aux côtés de l'AFD : Province Sud, GEF ISLANDS.</span></p>
+            <p><span class="len"><strong>Why it matters:</strong> This is not an independent advisory study — it is the technical validation conducted by the technology owners themselves. Axens and Itelyum certify that the Pacific feedstock meets the process requirements, that the projected yield is achievable, and that the installation will perform as modelled. That certification is the precondition all investment-phase financiers require before committing capital. Without it, the €120–133M phase cannot open. With it, Pacific Oil moves from a well-documented project to a technically guaranteed one.</span><span class="lfr"><strong>Pourquoi c'est nécessaire :</strong> Ce n'est pas une étude de conseil indépendante — c'est la validation technique conduite par les détenteurs de la technologie eux-mêmes. Axens et Itelyum certifient que le feedstock pacifique satisfait aux exigences du procédé, que le rendement projeté est atteignable et que l'installation performera conformément aux modèles. Cette certification est la condition que tous les financeurs de la phase investissement exigent avant d'engager des capitaux. Sans elle, la phase de 120–133 M€ ne peut s'ouvrir. Avec elle, Pacific Oil passe d'un projet bien documenté à un projet techniquement garanti.</span></p>
+          </div>
         </div>
       </div>
 
-      <div class="seq" style="padding-bottom:0">
-        <div class="seq-n">3</div>
-        <div class="seq-body">
-          <div class="seq-stag">Phase investissement</div>
-          <div class="seq-t">Construction et mise en service du hub</div>
-          <p class="seq-p">Sur la base de l'étude validée, levée de fonds et financement de l'infrastructure industrielle. L'étude technique devient le document central pour les financeurs : GEF ISLANDS, Loi Girardin/LODEOM, investisseurs privés.</p>
-          <div class="pill"><span class="pill-v">120 – 133 M€</span><span class="pill-l">CAPEX total · scénarios 35 à 50 000 t/an</span></div>
-        </div>
-      </div>
     </div>
 
-    <div class="img-block">
-      <img src="img/img_4.png" alt="Transport maritime dans le Pacifique">
-      <p class="img-cap">Les routes maritimes régionales · Swire Shipping / NPDL · les liaisons inter-îles existent déjà</p>
+    <div class="pw-conclusion">
+      <span class="len">These three steps are sequenced and interdependent. Sample analysis pre-qualifies the feedstock at minimal cost — confirming Pacific oils are compatible with the Revivoil™ process before any significant commitment. The regional workshop secures the volume commitments that make the financial model credible. The Axens / Itelyum pre-study then delivers the technical certification that investment-phase financiers require. AFD's support at this stage does not require a financial position on the investment — it requires recognition that the upstream phase is the precondition for everything that follows. The total cost of these three steps is under €200,000. The investment they condition is €120–133M.</span>
+      <span class="lfr">Ces trois étapes sont séquencées et interdépendantes. L'analyse des échantillons pré-qualifie le feedstock à coût minimal — elle confirme que les huiles du Pacifique sont compatibles avec le procédé Revivoil™ avant tout engagement significatif. L'atelier régional sécurise les engagements de volume qui rendent le modèle financier crédible. La pré-étude Axens / Itelyum délivre ensuite la certification technique que les financeurs de la phase investissement exigent. Le soutien de l'AFD à ce stade ne requiert pas de position financière sur l'investissement — il requiert la reconnaissance que la phase amont est la condition préalable à tout ce qui suit. Le coût total de ces trois étapes est inférieur à 200 000 €. L'investissement qu'elles conditionnent est de 120–133 M€.</span>
     </div>
 
-    <div class="callout">
-      <p>L'accompagnement demandé à l'AFD porte sur les étapes 1 et 2. Aucun engagement structurel ou juridique n'est requis à ce stade. L'engagement d'un financeur institutionnel comme l'AFD est le signal attendu par le SPREP et les territoires pour coordonner activement leur participation.</p>
-    </div>
   </div>
 </section>
 
-<!-- ═══ S4 · FINANCEMENT ═════════════════════════ -->
-<section id="financement">
-  <div class="w">
-    <div class="stag">Cadre de financement</div>
-    <h2>Une demande précise, des montants maîtrisés</h2>
+<!-- ── CLOSING ── -->
+<section id="closing" style="background:#f5f7fa;border-top:1px solid #dde3ec;">
+  <div class="container" style="padding-top:36px;padding-bottom:36px;text-align:center;">
 
-    <table class="fin-table">
-      <thead>
-        <tr><th>Poste</th><th>Montant estimé</th><th>Nature</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Envois d'échantillons · 10 territoires</strong><br><small style="color:var(--gy)">Expédition comme produit fini · coursier standard depuis chaque territoire</small></td>
-          <td style="white-space:nowrap">5 000 – 10 000 €</td>
-          <td>Frais de transport</td>
-        </tr>
-        <tr>
-          <td><strong>Étude de confirmation technique Axens / Itelyum</strong><br><small style="color:var(--gy)">Analyse feedstocks, dimensionnement, validation procédé · 10 territoires</small></td>
-          <td style="white-space:nowrap">~150 000 €</td>
-          <td>Étude technique</td>
-        </tr>
-      </tbody>
-    </table>
+    <svg viewBox="0 0 34 34" fill="none" style="width:48px;height:48px;margin:0 auto 12px;">
+      <circle cx="17" cy="17" r="15" stroke="rgba(7,30,61,.18)" stroke-width="1.4"/>
+      <path d="M17 5C11 5 7 11 7 17s4 12 10 12" stroke="#3db8c1" stroke-width="2.4" stroke-linecap="round"/>
+      <path d="M17 5c6 0 10 6 10 12s-4 12-10 12" stroke="#2ecc71" stroke-width="2.4" stroke-linecap="round"/>
+      <circle cx="17" cy="17" r="3.5" fill="#ff6b5b"/>
+    </svg>
 
-    <p style="font-size:15px;color:var(--gy);line-height:1.72;text-align:justify;hyphens:auto">Les modalités et le taux de co-financement sont à définir conjointement avec l'AFD selon le dispositif retenu.</p>
+    <div style="font-family:var(--fd);font-size:1.25rem;font-weight:700;color:var(--dark);letter-spacing:.03em;margin-bottom:16px;">Pacific Oil</div>
+
+    <p style="max-width:640px;margin:0 auto 20px;font-size:1rem;line-height:1.75;color:#2d3e52;">
+      <span class="len">Thank you for taking the time to consider this proposal. We are convinced that AFD's involvement in the upstream phase is the decisive factor in moving this project from a well-documented initiative to a regional reality. We remain available to discuss any aspect of this proposal at your convenience.</span>
+      <span class="lfr">Nous vous remercions du temps consacré à l'examen de cette proposition. Nous sommes convaincus que l'implication de l'AFD dans la phase amont est le facteur déterminant pour faire passer ce projet d'une initiative bien documentée à une réalité régionale. Nous restons disponibles pour échanger sur tout aspect de cette proposition, selon vos disponibilités.</span>
+    </p>
+
+    <div style="display:inline-flex;flex-direction:column;gap:10px;align-items:center;background:#fff;border:1px solid #dde3ec;border-radius:10px;padding:24px 40px;margin-bottom:8px;">
+      <div style="font-weight:700;font-size:1rem;color:var(--dark);">Matthieu Galoger</div>
+      <div style="font-size:0.9rem;color:var(--gy);margin-bottom:4px;">
+        <span class="len">Project lead — Pacific Oil</span>
+        <span class="lfr">Porteur de projet — Pacific Oil</span>
+      </div>
+      <a href="/cdn-cgi/l/email-protection#462b2732322e2f23336821272a2921233406212b272f2a6825292b" style="color:var(--teal);text-decoration:none;font-size:0.95rem;"><span class="__cf_email__" data-cfemail="f39e9287879b9a9686dd94929f9c949681b3949e929a9fdd909c9e">[email&#160;protected]</span></a>
+      <div style="font-size:0.95rem;color:#2d3e52;">
+        <span class="len">Tel / WhatsApp&nbsp;: </span>
+        <span class="lfr">Tél / WhatsApp&nbsp;: </span>
+        <a href="tel:+68791965 8" style="color:var(--teal);text-decoration:none;">+687 91 96 58</a>
+        &nbsp;·&nbsp;
+        <a href="tel:+33677584468" style="color:var(--teal);text-decoration:none;">+33 6 77 58 44 68</a>
+      </div>
+
+    </div>
+
   </div>
 </section>
 
-<!-- ═══ S5 · CONTEXTE ═════════════════════════════ -->
-<section id="contexte">
-  <div class="w">
-    <div class="stag">Contexte régional</div>
-    <h2>Un projet qui s'inscrit dans des dynamiques existantes</h2>
-    <p class="intro">Plusieurs programmes institutionnels financent déjà, dans le Pacifique, des actions sur les déchets dangereux et l'économie circulaire. Pacific Oil est leur prolongement industriel naturel.</p>
-
-    <!-- Impact -->
-    <div style="background:var(--dark);border-radius:8px;padding:22px 28px;margin-bottom:20px;display:flex;align-items:center;gap:28px;flex-wrap:wrap">
-      <div style="flex-shrink:0">
-        <div style="font-size:38px;font-weight:800;color:var(--teal);line-height:1">~40 000 t</div>
-        <div style="font-size:12px;color:rgba(255,255,255,.38);margin-top:4px;text-transform:uppercase;letter-spacing:.1em">CO₂ évitées / an</div>
-      </div>
-      <p style="font-size:14px;color:rgba(255,255,255,.52);line-height:1.65;margin:0;flex:1;min-width:200px;text-align:justify;hyphens:auto;max-width:none">Réduction de 64 à 71 % des émissions de CO₂ par rapport à la production pétrolière vierge, à 35 000 t traitées/an. Un litre d'huile usagée mal éliminé peut contaminer jusqu'à 1 000 litres d'eau. Le statu quo a un coût environnemental et économique réel et croissant. Source : ifeu / GEIR 2022.</p>
-    </div>
-
-    <div class="inits">
-      <div class="init">
-        <div class="dot"></div>
-        <div>
-          <h4>Programme SWAP · financé par l'AFD</h4>
-          <p>L'AFD finance déjà le SPREP pour documenter et gérer les huiles usagées dans le Pacifique. Pacific Oil est le prolongement industriel de ce diagnostic.</p>
-        </div>
-      </div>
-      <div class="init">
-        <div class="dot"></div>
-        <div>
-          <h4>GEF ISLANDS Pacific · 20 M$ + 90 M$ cofinancement · piloté par SPREP</h4>
-          <p>Programme ciblant explicitement les huiles usagées comme flux prioritaire dans 14 nations du Pacifique. Pacific Oil s'inscrit dans son périmètre.</p>
-        </div>
-      </div>
-      <div class="init">
-        <div class="dot"></div>
-        <div>
-          <h4>Cadre d'économie circulaire du Pacifique · SPREP 2023</h4>
-          <p>Adopté en septembre 2023. Pacific Oil serait la première infrastructure industrielle régionale concrète à s'inscrire dans ce cadre.</p>
-        </div>
-      </div>
-      <div class="init">
-        <div class="dot"></div>
-        <div>
-          <h4>PacWastePlus · Union européenne · géré par SPREP</h4>
-          <p>Programme UE actif dans les SIDS Pacifique sur l'économie circulaire. L'UE est déjà financeur de la transition circulaire dans la région.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="callout">
-      <p>L'AFD est l'interlocuteur naturel de cette phase amont : co-financeur du programme SWAP via le SPREP, présente dans la plupart des territoires contributeurs du hub, et positionnée pour faciliter le dialogue réglementaire avec l'Australie via ses relations de travail avec le DFAT. La phase d'investissement fera appel à d'autres financeurs institutionnels, dans la région Pacifique et en France, une fois l'étude technique validée.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ CONTACT ══════════════════════════════════════ -->
-<div class="cta">
-  <div class="cta-w">
-    <h2>Contact</h2>
-    <p>Avant tout dépôt de dossier formel, nous souhaitons un premier échange informel pour comprendre comment l'AFD peut nous accompagner et quel dispositif est le mieux adapté.</p>
-    <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:24px 28px;text-align:left;margin-top:8px">
-      <div style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:12px">Porteur du projet</div>
-      <div style="font-size:18px;font-weight:700;color:#fff;margin-bottom:6px">Matthieu Galoger</div>
-      <div style="font-size:15px;color:var(--teal);margin-bottom:4px">matthieu.galoger@gmail.com</div>
-      <div style="font-size:15px;color:rgba(255,255,255,.55);margin-bottom:16px">+687 91 96 58 · Nouméa, Nouvelle-Calédonie</div>
-      <div style="font-size:13px;color:rgba(255,255,255,.35)">Plan d'action à destination du SPREP : <a href="https://mattgalo.github.io/pacific-oil-sprep/" style="color:var(--teal)">mattgalo.github.io/pacific-oil-sprep</a></div>
-    </div>
-  </div>
-</div>
-
+<!-- ── FOOTER ── -->
 <footer>
-  <div class="footer-w">
-    <div class="footer-logos">
-      <img src="img/img_5.png" alt="Axens">
-      <img src="img/img_6.png" alt="Itelyum">
-    </div>
-    <div class="footer-text">
-      Pacific Oil · Hub régional de régénération des huiles usagées<br>
-      Nouvelle-Calédonie · Mars 2026
-    </div>
+  <div style="display:flex;align-items:center;justify-content:center;gap:28px;margin-bottom:14px;">
+    <span style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.4)"><span class="len">Technology partners</span><span class="lfr">Partenaires technologiques</span></span>
+    <img src="img/img_5.png" alt="Axens" style="height:32px;width:auto;">
+    <img src="img/img_6.png" alt="Itelyum" style="height:32px;width:auto;">
   </div>
+  <span class="len">Pacific Oil · Regional Used Oil Regeneration Hub · Nouméa, New Caledonia · March 2026</span>
+  <span class="lfr">Pacific Oil · Hub régional de régénération des huiles usagées · Nouméa, Nouvelle-Calédonie · Mars 2026</span>
 </footer>
 
-<script>
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
-</script>
-</body>
-</html>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// ── LANGUAGE ──
+// setLang defined in <head>
+
+// ── CURRENCY ──
+var rates = {EUR:1, USD:1.08, AUD:1.72, NZD:1.87, XPF:119.33, PGK:4.12};
+var syms  = {EUR:'€', USD:'$', AUD:'A$', NZD:'NZ$', XPF:'₣', PGK:'K'};
+function convertAll() {
+  var sel = document.getElementById('csel');
+  if (!sel) return;
+  var c = sel.value;
+  document.querySelectorAll('.pr[data-eur]').forEach(function(el) {
+    var v = parseFloat(el.dataset.eur) * rates[c];
+    var fmt = el.dataset.fmt;
+    var s;
+    if      (fmt === 'm') s = (v / 1e6).toFixed(1) + ' M' + c;
+    else if (fmt === 'k') s = Math.round(v / 1e3) + ' k' + c;
+    else                  s = Math.round(v).toLocaleString() + ' ' + c;
+    el.textContent = syms[c] + ' ' + s;
+  });
+}
+
+// ── SCENARIO TABS ──
+function showSc(id) {
+  document.querySelectorAll('.sc-pane').forEach(function(p) {
+    p.style.display = (p.id === 'pane-' + id) ? '' : 'none';
+  });
+  document.querySelectorAll('.sc-tab').forEach(function(b) {
+    var m = b.getAttribute('onclick').match(/showSc\('(\w+)'\)/);
+    if (m) b.classList.toggle('active', m[1] === id);
+  });
+}
+
+// ── NAV SCROLL ──
+window.addEventListener('scroll', function() {
+  document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// ── INIT ──
+document.addEventListener('DOMContentLoaded', function() {
+  setLang('en');
+  // default to Central (opt) scenario
+  document.querySelectorAll('.sc-pane').forEach(function(p) {
+    p.style.display = p.id === 'pane-opt' ? '' : 'none';
+  });
+  // Tooltips — after lang set
+  if (window._wrapTerms) { window._wrapTerms(); window._applyTooltips(); }
+});
+
+
+// ── TOOLTIPS ──
+(function() {
+  var TERMS = {
+    // EN term : [en definition, fr definition, optional FR variant]
+    'SPREP': [
+      'Secretariat of the Pacific Regional Environment Programme — the region\'s primary intergovernmental environment organisation, based in Apia, Samoa.',
+      'Programme régional océanien de l\'environnement — organisation intergouvernementale environnementale de la région, basée à Apia, Samoa.',
+      'PROE'
+    ],
+    'MTP': [
+      'Moana Taka Partnership — agreement between SPREP and Swire Shipping (2018) enabling free transport of recyclable waste, including used oils, from Pacific islands on empty return containers.',
+      'Moana Taka Partnership — accord entre le SPREP et Swire Shipping (2018) permettant le transport gratuit de déchets recyclables, dont les huiles usagées, depuis les îles du Pacifique sur les conteneurs retour à vide.',
+      null
+    ],
+    'NPDL': [
+      'Pacific Direct Line — regional shipping company serving 21 Pacific countries and territories, operating services including the Capitaine Kupe (French Polynesia–New Zealand–New Caledonia).',
+      'Pacific Direct Line — armateur régional desservant 21 pays et territoires du Pacifique, opérant notamment le Capitaine Kupe (Polynésie française–Nouvelle-Zélande–Nouvelle-Calédonie).',
+      null
+    ],
+    'SWAP': [
+      'Sustainable Waste Actions in the Pacific — SPREP programme providing technical and financial support to Pacific island territories for waste management, including used oil collection.',
+      'Sustainable Waste Actions in the Pacific — programme du SPREP apportant un soutien technique et financier aux territoires insulaires du Pacifique pour la gestion des déchets, dont la collecte des huiles usagées.',
+      null
+    ],
+    'DCCEEW': [
+      'Australian Department of Climate Change, Energy, the Environment and Water — the competent authority for hazardous waste export permits under the Hazardous Waste Act 1989.',
+      'Ministère australien du Changement climatique, de l\'Énergie, de l\'Environnement et de l\'Eau — autorité compétente pour les permis d\'exportation de déchets dangereux en vertu du Hazardous Waste Act 1989.',
+      null
+    ],
+    'DFAT': [
+      'Australian Department of Foreign Affairs and Trade — key lever for political facilitation of Australia–New Caledonia waste export agreements.',
+      'Ministère australien des Affaires étrangères et du Commerce — levier politique pour la facilitation des accords d\'exportation de déchets entre l\'Australie et la Nouvelle-Calédonie.',
+      null
+    ],
+    'PTOM': [
+      'Pays et Territoire d\'Outre-Mer — EU category covering New Caledonia, French Polynesia and Wallis & Futuna. PTOM status places these territories under the Basel Convention, not the Waigani Convention.',
+      'Pays et Territoire d\'Outre-Mer — statut européen couvrant la Nouvelle-Calédonie, la Polynésie française et Wallis-et-Futuna. Ce statut les soumet à la Convention de Bâle, et non à la Convention de Waigani.',
+      null
+    ],
+    'FIC': [
+      'Forum Island Countries — Pacific Forum member states (excluding Australia and New Zealand). Subject to the Waigani Convention, which prohibits hazardous waste imports but not exports from FICs.',
+      'Pays insulaires du Forum — États membres du Forum du Pacifique (hors Australie et Nouvelle-Zélande). Soumis à la Convention de Waigani, qui interdit les importations de déchets dangereux dans les PIF mais pas leurs exportations.',
+      'PIF'
+    ],
+    'Waigani': [
+      'Waigani Convention — regional treaty (1995) prohibiting the import of hazardous and radioactive waste into Forum Island Countries. It prohibits imports to FICs, not exports from them.',
+      'Convention de Waigani — traité régional (1995) interdisant l\'importation de déchets dangereux et radioactifs dans les pays insulaires du Forum. Elle interdit les importations vers les PIF, non leurs exportations.',
+      null
+    ],
+    'Basel': [
+      'Basel Convention — international treaty (1989) controlling transboundary movements of hazardous waste. Article 11 allows bilateral agreements between parties for specific waste streams.',
+      'Convention de Bâle — traité international (1989) contrôlant les mouvements transfrontaliers de déchets dangereux. L\'article 11 permet des accords bilatéraux entre parties pour des flux spécifiques.',
+      'Bâle'
+    ],
+    'Revivoil': [
+      'Revivoil™ — used oil regeneration process co-developed by Axens and Itelyum. Removes water, contaminants and additives to produce Group II base oil equivalent to virgin production.',
+      'Revivoil™ — procédé de régénération des huiles usagées co-développé par Axens et Itelyum. Élimine l\'eau, les contaminants et les additifs pour produire une huile de base Groupe II équivalente à la production vierge.',
+      null
+    ],
+    'Group II': [
+      'Group II base oil — API classification for high-quality mineral base oils (>90% saturates, <0.03% sulphur). Suitable for premium lubricant formulations. The output of the Revivoil™ regeneration process.',
+      'Huile de base Groupe II — classification API pour les huiles de base minérales de haute qualité (>90% saturates, <0,03% soufre). Convient aux formulations de lubrifiants premium. Produit du procédé de régénération Revivoil™.',
+      'Groupe II'
+    ],
+    'GEIR': [
+      'Groupement Européen de l\'Industrie de la Régénération — European association of used oil re-refiners. Source of the CO₂ reduction data (64–71% vs. virgin oil production) cited in this document.',
+      'Groupement Européen de l\'Industrie de la Régénération — association européenne des régénérateurs d\'huiles usagées. Source des données de réduction CO₂ (64–71% vs. production d\'huile vierge) citées dans ce document.',
+      null
+    ],
+    'ifeu': [
+      'Institut für Energie- und Umweltforschung Heidelberg — German environmental research institute. Co-author (with GEIR, 2022) of the lifecycle analysis establishing the 64–71% CO₂ reduction figure for used oil regeneration.',
+      'Institut für Energie- und Umweltforschung Heidelberg — institut allemand de recherche environnementale. Co-auteur (avec le GEIR, 2022) de l\'analyse de cycle de vie établissant le chiffre de réduction CO₂ de 64–71% pour la régénération des huiles usagées.',
+      null
+    ],
+    'Art. 11': [
+      'Basel Convention Article 11 — provision allowing parties to enter into bilateral, multilateral or regional agreements on hazardous waste movements, provided the agreements are no less environmentally sound.',
+      'Article 11 de la Convention de Bâle — disposition permettant aux parties de conclure des accords bilatéraux, multilatéraux ou régionaux sur les mouvements de déchets dangereux, à condition qu\'ils soient au moins aussi protecteurs pour l\'environnement.',
+      null
+    ],
+    'FSM': [
+      'Federated States of Micronesia — Pacific island nation comprising four states: Chuuk, Pohnpei, Kosrae and Yap.',
+      'États fédérés de Micronésie — nation insulaire du Pacifique comprenant quatre États : Chuuk, Pohnpei, Kosrae et Yap.',
+      null
+    ],
+    'R9': [
+      'Basel Convention R9 code — recovery operation for used oil re-refining or other reuses of oil. This code designates the transboundary movement as a recovery operation, not disposal, which is essential for regulatory approval.',
+      'Code R9 de la Convention de Bâle — opération de valorisation pour le re-raffinage d\'huiles usagées ou autres réutilisations d\'huile. Ce code désigne le mouvement transfrontalier comme une opération de valorisation, non d\'élimination, ce qui est essentiel pour l\'approbation réglementaire.',
+      null
+    ],
+    'Axens': [
+      'Axens — technology licensing company, subsidiary of IFP Energies nouvelles. Co-developer of the Revivoil™ regeneration process.',
+      'Axens — société de licence de technologie, filiale d\'IFP Energies nouvelles. Co-développeur du procédé de régénération Revivoil™.',
+      null
+    ],
+    'Itelyum': [
+      'Itelyum — European leader in used oil regeneration, operating 12 licensed Revivoil™ installations globally. Technical partner for feedstock analysis and process calibration.',
+      'Itelyum — leader européen de la régénération des huiles usagées, opérant 12 installations Revivoil™ sous licence dans le monde. Partenaire technique pour l\'analyse du feedstock et le calibrage du procédé.',
+      null
+    ],
+    'feedstock': [
+      'Feedstock — raw material supplied to the regeneration process. Here: used oil collected from the 10 contributing territories.',
+      'Feedstock (matière première) — matière brute alimentant le procédé de régénération. Ici : huiles usagées collectées dans les 10 territoires contributeurs.',
+      null
+    ],
+    'Trecodec': [
+      'Trecodec — New Caledonia\'s eco-organism responsible for used oil collection, with 466 collection points across the territory.',
+      'Trecodec — éco-organisme de Nouvelle-Calédonie responsable de la collecte des huiles usagées, avec 466 points de collecte sur le territoire.',
+      null
+    ],
+    'Swire': [
+      'Swire Shipping (China Navigation Company) — regional shipping operator providing container services across the Pacific. Signatory of the Moana Taka Partnership with SPREP (2018).',
+      'Swire Shipping (China Navigation Company) — armateur régional assurant des services de conteneurs à travers le Pacifique. Signataire du Moana Taka Partnership avec le SPREP (2018).',
+      null
+    ],
+    'Cleaner Pacific 2035': [
+      'Cleaner Pacific 2035 — SPREP regional strategy committing Pacific island countries and territories to improved solid and hazardous waste management, including used oil, by 2035.',
+      'Cleaner Pacific 2035 — stratégie régionale du SPREP engageant les pays et territoires insulaires du Pacifique à améliorer la gestion des déchets solides et dangereux, dont les huiles usagées, d\'ici 2035.',
+      null
+    ],
+    'DIMENC': [
+      'Direction des Mines et de l\'Énergie de Nouvelle-Calédonie — New Caledonia\'s competent authority for mining, energy and industrial classified installations (ICPE), including hazardous waste import authorisations.',
+      'Direction des Mines et de l\'Énergie de Nouvelle-Calédonie — autorité compétente pour les mines, l\'énergie et les installations classées (ICPE) en Nouvelle-Calédonie, dont les autorisations d\'importation de déchets dangereux.',
+      null
+    ],
+    'PNG': [
+      'Papua New Guinea — Pacific island nation with an estimated 5,000 to 10,000 tonnes of capturable used oil per year, representing one of the hub\'s largest potential feedstock contributors.',
+      'Papouasie-Nouvelle-Guinée — pays insulaire du Pacifique avec un volume estimé de 5 000 à 10 000 tonnes d\'huiles usagées captables par an, l\'un des plus importants contributeurs potentiels en feedstock pour le hub.',
+      null
+    ],
+    'INTEGRE': [
+      'INTEGRE — EU-funded Pacific regional project (2013–2017) on integrated management of coastal resources. Recommended France\'s accession to the Waigani Convention in 2016; this recommendation remains unimplemented.',
+      'INTEGRE — projet régional pacifique financé par l\'UE (2013–2017) sur la gestion intégrée des ressources côtières. A recommandé l\'adhésion de la France à la Convention de Waigani en 2016 ; cette recommandation est restée sans suite.',
+      null
+    ],
+    'Groupe II': [
+      'Group II base oil — API classification for high-quality mineral base oils (>90% saturates, <0.03% sulphur). Output of the Revivoil™ regeneration process.',
+      'Huile de base Groupe II — classification API pour les huiles de base minérales de haute qualité (>90% saturates, <0,03% soufre). Produit du procédé de régénération Revivoil™.',
+      null
+    ],
+    'R1': [
+      'Basel Convention R1 code — use as fuel or energy recovery. Used oil burned under R1 destroys the molecule: no material recovery is possible. Currently the dominant disposal route for Pacific used oil.',
+      'Code R1 de la Convention de Bâle — utilisation comme combustible ou récupération d\'énergie. L\'huile usagée brûlée en R1 détruit la molécule : aucune valorisation matière n\'est possible. Voie d\'élimination dominante dans le Pacifique.',
+      null
+    ],
+    'ICPE': [
+      'Installation Classée pour la Protection de l\'Environnement — French regulatory framework for industrial installations with potential environmental impact. The regeneration hub would require an ICPE authorisation in New Caledonia.',
+      'Installation Classée pour la Protection de l\'Environnement — cadre réglementaire français pour les installations industrielles à impact environnemental potentiel. Le hub de régénération nécessitera une autorisation ICPE en Nouvelle-Calédonie.',
+      null
+    ],
+    'Haut-Commissaire': [
+      'Haut-Commissaire de la République en Nouvelle-Calédonie — the French State\'s representative in New Caledonia, competent authority for hazardous waste import authorisations under the PTOM framework.',
+      'Haut-Commissaire de la République en Nouvelle-Calédonie — représentant de l\'État français en Nouvelle-Calédonie, autorité compétente pour les autorisations d\'importation de déchets dangereux dans le cadre PTOM.',
+      null
+    ],
+    'Haut-Commissariat': [
+      'Office of the High Commissioner of the Republic in New Caledonia — the French State\'s representative body, competent for hazardous waste import authorisations.',
+      'Haut-Commissariat de la République en Nouvelle-Calédonie — représentation de l\'État français, autorité compétente pour les autorisations d\'importation de déchets dangereux.',
+      null
+    ],
+    'AFD': [
+      'Agence Française de Développement — French public development bank. Co-funds the SWAP programme through SPREP. Present across most of the hub\'s contributing territories.',
+      'Agence Française de Développement — banque publique de développement française. Co-financeur du programme SWAP via le SPREP. Présente dans la plupart des territoires contributeurs du hub.',
+      null
+    ],
+    'GEF': [
+      'Global Environment Facility — multilateral environmental fund financing conservation and sustainability projects in developing countries. The GEF ISLANDS programme specifically targets used oil in Pacific island states.',
+      'Fonds pour l\'environnement mondial — fonds multilatéral finançant des projets de conservation et de durabilité dans les pays en développement. Le programme GEF ISLANDS cible spécifiquement les huiles usagées dans les États insulaires du Pacifique.',
+      null
+    ],
+    'GEF ISLANDS': [
+      'GEF ISLANDS Pacific — Global Environment Facility programme (US$20M + US$90M co-financing), managed by SPREP, targeting used oil as a priority waste stream in 14 Pacific island nations.',
+      'GEF ISLANDS Pacific — programme du Fonds pour l\'environnement mondial (20 M$ + 90 M$ de cofinancement), piloté par le SPREP, ciblant les huiles usagées comme flux prioritaire dans 14 nations insulaires du Pacifique.',
+      null
+    ],
+    'JICA': [
+      'Japan International Cooperation Agency — implements J-PRISM in partnership with SPREP. Conducted a documented used oil pilot project in Samoa under J-PRISM II.',
+      'Agence japonaise de coopération internationale — pilote J-PRISM en partenariat avec le SPREP. A conduit un projet pilote documenté sur les huiles usagées en Samoa dans le cadre de J-PRISM II.',
+      null
+    ],
+    'J-PRISM': [
+      'Japanese Technical Cooperation Project for Promotion of Regional Initiative on Solid Waste Management — Japan/JICA programme active since 2000 in 11 Pacific countries for waste management capacity building.',
+      'Coopération technique Japon/JICA active depuis 2000 dans 11 pays du Pacifique pour le renforcement des capacités en gestion des déchets solides et dangereux.',
+      null
+    ],
+    'PacWastePlus': [
+      'PacWastePlus — EU programme managed by SPREP, active across Pacific small island states on hazardous waste management and the circular economy.',
+      'PacWastePlus — programme de l\'Union européenne géré par le SPREP, actif dans les petits États insulaires du Pacifique sur les déchets dangereux et l\'économie circulaire.',
+      null
+    ],
+    'MFAT': [
+      'New Zealand Ministry of Foreign Affairs and Trade — co-funder of the Kiwa Initiative alongside AFD, Australia and the EU.',
+      'Ministère néo-zélandais des affaires étrangères et du commerce — co-bailleur de l\'Initiative Kiwa aux côtés de l\'AFD, de l\'Australie et de l\'UE.',
+      null
+    ],
+    'EBITDA': [
+      'Earnings Before Interest, Taxes, Depreciation and Amortisation — indicator of operational performance before depreciation, debt and taxation.',
+      'Earnings Before Interest, Taxes, Depreciation and Amortisation — indicateur de performance opérationnelle avant amortissements, endettement et fiscalité.',
+      null
+    ],
+    'CAPEX': [
+      'Capital Expenditure — total investment required for hub construction and commissioning, estimated at €120–133M depending on capacity scenario (35,000–50,000 t/year).',
+      'Capital Expenditure (dépenses d\'investissement) — montant total pour la construction et la mise en service du hub, estimé entre 120 et 133 M€ selon le scénario de capacité (35 000–50 000 t/an).',
+      null
+    ],
+    'FOB': [
+      'Free On Board — commercial term: the seller delivers goods to the port of shipment, buyer bears freight costs thereafter. FOB Singapore is the reference price benchmark for base oils in Asia-Pacific.',
+      'Free On Board — terme commercial : le vendeur livre la marchandise au port d\'embarquement, l\'acheteur supporte ensuite les coûts de fret. FOB Singapore est la référence de prix pour les huiles de base en Asie-Pacifique.',
+      null
+    ],
+    'ICIS': [
+      'ICIS (Independent Chemical Information Service) — leading market data service for base oil and chemical prices. Source for the Group II prices cited in this document (Q4 2025).',
+      'ICIS (Independent Chemical Information Service) — service de référence pour les données de marché des huiles de base et produits chimiques. Source des prix Groupe II cités dans ce document (T4 2025).',
+      null
+    ],
+    'CONOU': [
+      'CONOU — Consorzio Nazionale per la Gestione degli Oli Minerali Usati. Italian national consortium for used oil collection and regeneration. Reference governance model for Pacific Oil.',
+      'CONOU — Consorzio Nazionale per la Gestione degli Oli Minerali Usati. Consortium national italien de collecte et régénération des huiles usagées. Modèle de gouvernance de référence pour Pacific Oil.',
+      null
+    ],
+    'Province Sud': [
+      'Province Sud — one of New Caledonia\'s three provinces. Natural co-funder of the upstream study phase, co-piloted the ACE/Province Sud call for expressions of interest on used oil treatment (2025).',
+      'Province Sud — l\'une des trois provinces de la Nouvelle-Calédonie. Co-financeur naturel de la phase d\'études amont, co-pilote de l\'appel à manifestation d\'intérêt ACE/Province Sud sur le traitement des huiles usagées (2025).',
+      null
+    ],
+    'Moana Taka': [
+      'Moana Taka Partnership — framework agreement between SPREP and Swire Shipping (March 2018) enabling free transport of recyclable waste, including used oils, from Pacific islands on empty return containers.',
+      'Moana Taka Partnership — accord-cadre entre le SPREP et Swire Shipping (mars 2018) permettant le transport gratuit de déchets recyclables, dont les huiles usagées, depuis les îles du Pacifique sur les conteneurs retour à vide.',
+      null
+    ],
+    'IFP': [
+      'IFP Energies nouvelles — French public research and innovation organisation specialising in energy, transport and the environment. Parent company of Axens.',
+      'IFP Energies nouvelles — organisme français de recherche et d\'innovation spécialisé dans l\'énergie, le transport et l\'environnement. Maison mère d\'Axens.',
+      null
+    ],
+    'XPF': [
+      'CFP franc (XPF) — currency used in French Pacific territories: New Caledonia, French Polynesia and Wallis & Futuna. Pegged to the euro (1 EUR = 119.33 XPF).',
+      'Franc CFP (XPF) — monnaie utilisée dans les territoires français du Pacifique : Nouvelle-Calédonie, Polynésie française et Wallis-et-Futuna. Arrimé à l\'euro (1 EUR = 119,33 XPF).',
+      null
+    ],
+    'API': [
+      'American Petroleum Institute — US standards body that classifies lubricant base oils into Groups I through V based on viscosity index, saturate content and sulphur levels.',
+      'American Petroleum Institute — organisme américain de normalisation qui classe les huiles de base en Groupes I à V selon l\'indice de viscosité, la teneur en saturates et en soufre.',
+      null
+    ],
+    'Loi Girardin': [
+      'Loi Girardin / LODEOM — national tax relief mechanism (law of 27 May 2009) for productive investments in French overseas territories including New Caledonia.',
+      'Loi Girardin / LODEOM — mécanisme national de défiscalisation (loi du 27 mai 2009) pour les investissements productifs dans les territoires français d\'outre-mer dont la Nouvelle-Calédonie.',
+      null
+    ],
+    'LODEOM': [
+      'Loi pour le Développement Économique des Outre-Mer (2009) — establishes the Girardin tax relief framework for productive investments in French overseas territories.',
+      'Loi pour le Développement Économique des Outre-Mer (2009) — fonde le dispositif de défiscalisation Girardin pour les investissements productifs en outre-mer.',
+      null
+    ],
+    'Loi Frogier': [
+      'Loi Frogier — local tax relief mechanism specific to New Caledonia, combinable with the national Girardin/LODEOM mechanism.',
+      'Loi Frogier — dispositif local de défiscalisation propre à la Nouvelle-Calédonie, cumulable avec le mécanisme national Girardin/LODEOM.',
+      null
+    ],
+    'Hazardous Waste Act': [
+      'Hazardous Waste Act 1989 (Australia) — federal legislation regulating the export, import and transit of hazardous waste. Administered by DCCEEW. Any export of used oil from Australia to the hub requires a permit under this Act.',
+      'Hazardous Waste Act 1989 (Australie) — loi fédérale régissant les exports, imports et transit de déchets dangereux. Administrée par le DCCEEW. Tout export d\'huile usagée d\'Australie vers le hub nécessite un permis en vertu de cette loi.',
+      null
+    ],
+    'Directive-cadre': [
+      'EU Waste Framework Directive (2008/98/EC) — establishes the EU waste hierarchy (prevention, reuse, recycling, recovery, disposal) and defines recovery operations including R9 re-refining. Applicable in New Caledonia as a PTOM territory.',
+      'Directive-cadre déchets de l\'UE (2008/98/CE) — établit la hiérarchie des déchets (prévention, réutilisation, recyclage, valorisation, élimination) et définit les opérations de valorisation dont le re-raffinage R9. Applicable en Nouvelle-Calédonie en tant que PTOM.',
+      null
+    ],
+    'Bâle': [
+      'Basel Convention — international treaty (1989) controlling transboundary movements of hazardous waste. Article 11 allows bilateral agreements between parties for specific waste streams.',
+      'Convention de Bâle — traité international (1989) contrôlant les mouvements transfrontaliers de déchets dangereux. L\'article 11 permet des accords bilatéraux entre parties pour des flux spécifiques.',
+      null
+    ]
+  };
+
+  function getLang() {
+    return document.body.classList.contains('lang-fr') ? 'fr' : 'en';
+  }
+
+  function applyTooltips() {
+    var lang = getLang();
+    document.querySelectorAll('abbr.tip').forEach(function(el) {
+      el.setAttribute('data-tip', lang === 'fr' ? el.dataset.tipFr : el.dataset.tipEn);
+    });
+  }
+
+  // Wrap ALL occurrences of each term in body text nodes
+  function wrapTerms() {
+
+    function walkNode(node) {
+      if (node.nodeType === 3) { // text node
+        var text = node.nodeValue;
+        for (var term in TERMS) {
+          var def = TERMS[term];
+          var enDef = def[0], frDef = def[1];
+          var pattern = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+          // Use indexOf for reliable matching regardless of accents/special chars
+          var idx = text.indexOf(term);
+          var m = null;
+          if (idx !== -1) {
+            // Check it's not mid-word (basic boundary check)
+            var before_char = idx > 0 ? text[idx-1] : ' ';
+            var after_char = idx + term.length < text.length ? text[idx + term.length] : ' ';
+            var wordChars = /[a-zA-ZÀ-ÿ0-9]/;
+            if (!wordChars.test(before_char) || !wordChars.test(text[0])) {
+              m = [term, term];
+              m.index = idx;
+            }
+          }
+          if (m) {
+            var before = text.slice(0, idx !== undefined ? idx : m.index);
+            var match  = term;
+            var after  = text.slice((idx !== undefined ? idx : m.index) + term.length);
+            var abbr = document.createElement('abbr');
+            abbr.className = 'tip';
+            abbr.dataset.tipEn = enDef;
+            abbr.dataset.tipFr = frDef;
+            abbr.setAttribute('data-tip', getLang() === 'fr' ? frDef : enDef);
+            abbr.textContent = match;
+            var parent = node.parentNode;
+            if (parent && parent.tagName !== 'ABBR' && parent.tagName !== 'SCRIPT' && parent.tagName !== 'STYLE') {
+              var frag = document.createDocumentFragment();
+              var beforeNode = before ? document.createTextNode(before) : null;
+              var afterNode  = after  ? document.createTextNode(after)  : null;
+              if (beforeNode) frag.appendChild(beforeNode);
+              frag.appendChild(abbr);
+              if (afterNode) frag.appendChild(afterNode);
+              parent.replaceChild(frag, node);
+              if (beforeNode) walkNode(beforeNode);
+              if (afterNode)  walkNode(afterNode);
+              return;
+            }
+          }
+        }
+      } else if (node.nodeType === 1 &&
+                 node.tagName !== 'SCRIPT' && node.tagName !== 'STYLE' &&
+                 node.tagName !== 'ABBR' && node.tagName !== 'svg') {
+        Array.from(node.childNodes).forEach(walkNode);
+      }
+    }
+
+    walkNode(document.body);
+  }
+
+  // wrapTerms called from main DOMContentLoaded below
+  window._wrapTerms = wrapTerms;
+  window._applyTooltips = applyTooltips;
+
+  // Re-apply data-tip attribute on lang change
+  var _origSetLang = window.setLang;
+  // Hook into setLang after it's defined
+  window.addEventListener('load', function() {
+    var origSetLang = window.setLang;
+    if (origSetLang) {
+      window.setLang = function(l) {
+        origSetLang(l);
+        applyTooltips();
+      };
+    }
+  });
+
+  // Touch support — tap to open/close tooltip
+  document.addEventListener('click', function(e) {
+    if (e.target.closest('abbr.t
