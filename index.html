@@ -1237,8 +1237,7 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.sc-pane').forEach(function(p) {
     p.style.display = p.id === 'pane-opt' ? '' : 'none';
   });
-  // Tooltips — after lang set
-  if (window._wrapTerms) { window._wrapTerms(); window._applyTooltips(); }
+
 });
 
 
@@ -1576,9 +1575,10 @@ document.addEventListener('DOMContentLoaded', function() {
     walkNode(document.body);
   }
 
-  // wrapTerms called from main DOMContentLoaded below
-  window._wrapTerms = wrapTerms;
-  window._applyTooltips = applyTooltips;
+  document.addEventListener('DOMContentLoaded', function() {
+    wrapTerms();
+    applyTooltips();
+  });
 
   // Re-apply data-tip attribute on lang change
   var _origSetLang = window.setLang;
@@ -1595,4 +1595,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Touch support — tap to open/close tooltip
   document.addEventListener('click', function(e) {
-    if (e.target.closest('abbr.t
+    if (e.target.closest('abbr.tip')) {
+      document.querySelectorAll('abbr.tip.tip-open').forEach(function(el) {
+        if (el !== e.target.closest('abbr.tip')) el.classList.remove('tip-open');
+      });
+      e.target.closest('abbr.tip').classList.toggle('tip-open');
+    } else {
+      document.querySelectorAll('abbr.tip.tip-open').forEach(function(el) {
+        el.classList.remove('tip-open');
+      });
+    }
+  });
+
+})();
+</script>
+
+</body>
+</html>
